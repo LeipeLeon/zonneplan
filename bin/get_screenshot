@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+mkdir out
+# get screenshot
+docker run -it -v $(pwd):/usr/src/app/out --rm nevermendel/chrome-headless-screenshots https://www.zonneplan.nl/energie/dynamische-energieprijzen --height 2160 --filename "out/screenshot"
+# -> screenshot.png
+
+# imagemagick
+# convert screenshot.png -chop 390x400 -crop 1135x681 cropped1.png
+convert out/screenshot.png -chop 390x520 -crop 1135x681 out/cropped1.png
+# scale down
+convert out/cropped1-0.png -resize 800x480 out/resized.png
+
