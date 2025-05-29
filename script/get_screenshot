@@ -2,7 +2,7 @@
 
 mkdir build
 # get screenshot
-docker run -it -v $(pwd):/usr/src/app/out --rm nevermendel/chrome-headless-screenshots https://www.zonneplan.nl/energie/dynamische-energieprijzen --height 2160 --filename "build/screenshot"
+docker run -v $(pwd):/usr/src/app/out --rm nevermendel/chrome-headless-screenshots https://www.zonneplan.nl/energie/dynamische-energieprijzen --height 2160 --filename "build/screenshot"
 # -> screenshot.png
 
 # imagemagick
