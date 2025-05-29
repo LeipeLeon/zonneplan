@@ -32,6 +32,21 @@ jobs:
         uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
         with:
           path: build/
+
+      - name: Move image to history folder
+        run: |-
+          mkdir -p history/$(date +%Y/%m)
+          timestamp=$(date +%Y/%m/%d-%U%M)
+          mv build/diffused.png history/${timestamp}.png
+
+      - name: Commit and push changes
+        run: |-
+          git config user.name "BerenBot"
+          git config user.email "bot@wendbaar.nl"
+          git add history/$(date +%Y/%m)
+          timestamp=$(date -u)
+          git commit -m "Latest data: ${timestamp}" || exit 0
+          git push
   # Deploy job
   deploy:
     # Add a dependency to the build job
