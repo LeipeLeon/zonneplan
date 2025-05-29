@@ -6,8 +6,9 @@ docker run -it -v $(pwd):/usr/src/app/out --rm nevermendel/chrome-headless-scree
 # -> screenshot.png
 
 # imagemagick
-# convert screenshot.png -chop 390x400 -crop 1135x681 cropped1.png
-convert out/screenshot.png -chop 390x520 -crop 1135x681 out/cropped1.png
+# magick screenshot.png -chop 390x400 -crop 1135x681 cropped1.png
+magick out/screenshot.png -chop 390x520 -crop 1135x681 out/cropped1.png
 # scale down
-convert out/cropped1-0.png -resize 800x480 out/resized.png
+magick out/cropped1-0.png -resize 800x480 out/resized.png
 
+magick out/resized.png -dither FloydSteinberg -define dither:diffusion-amount=85% -remap epaper_eink-2color.png out/diffused.png
