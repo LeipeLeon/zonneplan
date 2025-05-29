@@ -33,7 +33,7 @@ jobs:
           path: README.md
           outputpath: build
       - name: Move README.html to index.html
-        run: mv build/readme.html index.html
+        run: mv build/README.html build/index.html
 
       - name: Upload static files as artifact
         id: deployment
