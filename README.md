@@ -1,4 +1,4 @@
-Generate an image for the [TRMNL](https://usetrmnl.com/) display.
+# Generate an image for the [TRMNL](https://usetrmnl.com/) display.
 
 ![](https://leipeleon.github.io/zonneplan/diffused.png)
 
@@ -9,3 +9,10 @@ Generate an image for the [TRMNL](https://usetrmnl.com/) display.
 1. create a [diffused image](https://leipeleon.github.io/zonneplan/diffused.png)
 1. Upload it to github-pages
 1. PROFIT!
+
+---
+
+## explorations:
+
+- export dom into an png https://github.com/tsayen/dom-to-image
+- https://marketplace.visualstudio.com/items?itemName=pnp.polacode
