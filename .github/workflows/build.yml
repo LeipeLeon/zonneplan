@@ -16,7 +16,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0 # Number of commits to fetch. 0 indicates all history for all branches and tags.
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Imagemagick
@@ -47,7 +47,7 @@ jobs:
           git add history/$(date +%Y/%m)
           timestamp=$(date -u)
           git commit -m "Latest data: ${timestamp}" || exit 0
-          git push
+          git push origin main
   # Deploy job
   deploy:
     # Add a dependency to the build job
