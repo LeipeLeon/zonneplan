@@ -14,6 +14,12 @@ This image can be used with the <https://usetrmnl.com/plugin_settings?keyname=im
 4. Upload it to github-pages
 5. PROFIT!
 
+## Further readiung for inverstigation
+
+- https://help.usetrmnl.com/en/articles/11479051-image-display
+- https://docs.usetrmnl.com/go/imagemagick-guide
+- https://usage.imagemagick.org/crop/#crop
+
 ---
 
 ## explorations:
