@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 mkdir -p build
+# fetch latest version
+docker pull ghcr.io/leipeleon/chrome-headless-screenshots:master
 # get screenshot
 docker run -v $(pwd):/usr/src/app/out --rm ghcr.io/leipeleon/chrome-headless-screenshots:master https://www.zonneplan.nl/energie/dynamische-energieprijzen --height 2160 --filename "build/screenshot" --timezone "Europe/Amsterdam"
 # -> screenshot.png
