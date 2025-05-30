@@ -48,7 +48,7 @@ jobs:
           mv build/dithered.png history/${timestamp}-dithered.png
           mv build/diffused.png history/${timestamp}-diffused.png
           mv build/diffused.bmp history/${timestamp}-diffused.bmp
-          mv build/cropped.png history/${timestamp}-color.png
+          mv build/cropped-0.png history/${timestamp}-color.png
 
       - name: Commit and push changes
         run: |-
