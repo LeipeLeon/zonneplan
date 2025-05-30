@@ -1,6 +1,6 @@
 # Generate an image for the [TRMNL](https://usetrmnl.com/) display.
 
-This image can be used with the <https://usetrmnl.com/plugin_settings?keyname=image_display> plugin
+This image can be used with the [Image display](https://usetrmnl.com/plugin_settings?keyname=image_display) or [Alias](https://usetrmnl.com/plugin_settings?keyname=alias) plugin
 
 ![](https://leipeleon.github.io/zonneplan/diffused.png)
 
@@ -19,10 +19,3 @@ This image can be used with the <https://usetrmnl.com/plugin_settings?keyname=im
 - https://help.usetrmnl.com/en/articles/11479051-image-display
 - https://docs.usetrmnl.com/go/imagemagick-guide
 - https://usage.imagemagick.org/crop/#crop
-
----
-
-## Explorations:
-
-- export dom into an png https://github.com/tsayen/dom-to-image
-- https://marketplace.visualstudio.com/items?itemName=pnp.polacode
