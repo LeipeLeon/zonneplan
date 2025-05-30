@@ -4,7 +4,8 @@ This image can be used with the <https://usetrmnl.com/plugin_settings?keyname=im
 
 ![](https://leipeleon.github.io/zonneplan/diffused.png)
 
-- diffused: <https://leipeleon.github.io/zonneplan/diffused.png>
+- diffused png: <https://leipeleon.github.io/zonneplan/diffused.png>
+- diffused bmp: <https://leipeleon.github.io/zonneplan/diffused.bmp>
 - color: <https://leipeleon.github.io/zonneplan/resized.png>
 
 1. Make a screenshot of https://www.zonneplan.nl/energie/dynamische-energieprijzen

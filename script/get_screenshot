@@ -11,4 +11,7 @@ magick build/screenshot.png -chop 390x520 -crop 1135x681 build/cropped1.png
 # scale down
 magick build/cropped1-0.png -resize 800x480 build/resized.png
 
-magick build/resized.png -dither FloydSteinberg -define dither:diffusion-amount=85% -remap epaper_eink-2color.png build/diffused.png
+magick build/resized.png -dither FloydSteinberg -define dither:diffusion-amount=50% -ordered-dither h4x4a -remap epaper_eink-2color.png build/dithered.png
+
+magick build/dithered.png -monochrome -colors 2 -depth 1 -strip png:build/diffused.png
+magick build/dithered.png -monochrome -colors 2 -depth 1 -strip bmp3:build/diffused.bmp
