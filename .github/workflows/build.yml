@@ -44,7 +44,7 @@ jobs:
       - name: Move image to history folder
         run: |-
           mkdir -p history/$(date +%Y/%m)
-          timestamp=$(date +%Y/%m/%d-%U%M)
+          timestamp=$(date +%Y/%m/%d-%H%M)
           mv build/diffused.png history/${timestamp}-diffused.png
           mv build/resized.png history/${timestamp}-color.png
 
