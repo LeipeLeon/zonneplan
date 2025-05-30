@@ -4,6 +4,7 @@ This image can be used with the [Image display](https://usetrmnl.com/plugin_sett
 
 ![](https://leipeleon.github.io/zonneplan/diffused.png)
 
+- dithered png: <https://leipeleon.github.io/zonneplan/dithered.png>
 - diffused png: <https://leipeleon.github.io/zonneplan/diffused.png>
 - diffused bmp: <https://leipeleon.github.io/zonneplan/diffused.bmp>
 - color: <https://leipeleon.github.io/zonneplan/resized.png>

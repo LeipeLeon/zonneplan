@@ -45,9 +45,10 @@ jobs:
         run: |-
           mkdir -p history/$(date +%Y/%m)
           timestamp=$(date +%Y/%m/%d-%H%M)
+          mv build/dithered.png history/${timestamp}-dithered.png
           mv build/diffused.png history/${timestamp}-diffused.png
           mv build/diffused.bmp history/${timestamp}-diffused.bmp
-          mv build/resized.png history/${timestamp}-color.png
+          mv build/cropped.png history/${timestamp}-color.png
 
       - name: Commit and push changes
         run: |-
