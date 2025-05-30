@@ -14,7 +14,7 @@ This image can be used with the <https://usetrmnl.com/plugin_settings?keyname=im
 4. Upload it to github-pages
 5. PROFIT!
 
-## Further readiung for inverstigation
+## Further reading for investigation
 
 - https://help.usetrmnl.com/en/articles/11479051-image-display
 - https://docs.usetrmnl.com/go/imagemagick-guide
@@ -22,7 +22,7 @@ This image can be used with the <https://usetrmnl.com/plugin_settings?keyname=im
 
 ---
 
-## explorations:
+## Explorations:
 
 - export dom into an png https://github.com/tsayen/dom-to-image
 - https://marketplace.visualstudio.com/items?itemName=pnp.polacode
