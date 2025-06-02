@@ -23,6 +23,8 @@ doc = Nokogiri::HTML(html)
 
 ENV['TZ'] = 'Europe/Amsterdam'
 
+Dir.mkdir('build') unless Dir.exist?('build')
+
 def generate_data_file(hours, dat_file)
   File.open(dat_file, 'w') do |f|
     hours.reverse!
