@@ -1,0 +1,2801 @@
+{
+  "props": {
+    "pageProps": {
+      "data": {
+        "templateName": "block-builder",
+        "templateProps": {
+          "pageLayout": "default",
+          "title": "Energieprijzen",
+          "featuredImage": null,
+          "modified": "2025-03-27T12:32:44",
+          "noIndex": null,
+          "author": { "name": null, "image": null },
+          "blocks": [
+            {
+              "__typename": "Page_Blocks_Block_SpacerBlock",
+              "height": "menu-submenu",
+              "sharedBlockSettings": {
+                "__typename": "Page_Blocks_Block_SpacerBlock_SharedBlockSettings",
+                "colorPreset": "kellygreen_white",
+                "marginTop": null,
+                "marginBottom": null,
+                "roofElement": null,
+                "partialBackground": null,
+                "partialBackgroundSide": "top",
+                "partialBackgroundColor": "KELLY_GREEN"
+              }
+            },
+            {
+              "__typename": "Page_Blocks_Block_Title",
+              "title": "Dynamische \u003cspan style=\"color: #0e352e\"\u003eenergieprijzen\u003c/span\u003e",
+              "heading": "1",
+              "iconTitle": {
+                "__typename": "Page_Blocks_Block_Title_IconTitle",
+                "iconTitleActive": null,
+                "title": null,
+                "iconPath": null
+              },
+              "sharedBlockSettings": {
+                "__typename": "Page_Blocks_Block_Title_SharedBlockSettings",
+                "marginTop": "16",
+                "marginBottom": "24",
+                "colorPreset": "kellygreen_white",
+                "roofElement": null,
+                "partialBackground": null,
+                "partialBackgroundSide": "top",
+                "partialBackgroundColor": "KELLY_GREEN"
+              }
+            },
+            { "__typename": "Page_Blocks_Block_SubMenu", "showInHeader": true },
+            {
+              "__typename": "Page_Blocks_Block_CurrentEnergyPrices",
+              "type": "electricity",
+              "sharedBlockSettings": {
+                "__typename": "Page_Blocks_Block_CurrentEnergyPrices_SharedBlockSettings",
+                "marginTop": "12",
+                "marginBottom": "24",
+                "colorPreset": "kellygreen_white",
+                "roofElement": null,
+                "partialBackground": null,
+                "partialBackgroundSide": "top",
+                "partialBackgroundColor": "KELLY_GREEN"
+              }
+            },
+            {
+              "__typename": "Page_Blocks_Block_EnergyPricesBlock",
+              "type": "electricity",
+              "switchType": "switch",
+              "displayType": "day",
+              "sharedBlockSettings": {
+                "__typename": "Page_Blocks_Block_EnergyPricesBlock_SharedBlockSettings",
+                "colorPreset": "default",
+                "marginTop": null,
+                "marginBottom": null,
+                "roofElement": null,
+                "partialBackground": true,
+                "partialBackgroundSide": "top",
+                "partialBackgroundColor": "KELLY_GREEN"
+              }
+            },
+            {
+              "__typename": "Page_Blocks_Block_Title",
+              "title": "Wat zijn dynamische energieprijzen?",
+              "heading": "2",
+              "iconTitle": {
+                "__typename": "Page_Blocks_Block_Title_IconTitle",
+                "iconTitleActive": null,
+                "title": null,
+                "iconPath": null
+              },
+              "sharedBlockSettings": {
+                "__typename": "Page_Blocks_Block_Title_SharedBlockSettings",
+                "marginTop": "64",
+                "marginBottom": "16",
+                "colorPreset": "default",
+                "roofElement": null,
+                "partialBackground": null,
+                "partialBackgroundSide": "top",
+                "partialBackgroundColor": "KELLY_GREEN"
+              }
+            },
+            {
+              "__typename": "Page_Blocks_Block_Text",
+              "title": null,
+              "content": "\u003cp style=\"text-align: center;\"\u003eBij dynamische energietarieven verandert de stroomprijs elk uur en de gasprijs elke dag. Waait er veel wind of is er veel zon? Dan zijn de \u003cstrong\u003eprijzen lager\u003c/strong\u003e. Is dit niet het geval en moeten gas- en kolencentrales bijspringen, dan zorgt dat voor een hogere prijs. Bij een prijsdaling profiteer je direct van \u003cstrong\u003egoedkope uren\u003c/strong\u003e of dagen, terwijl je bij een prijsstijging ook direct de hogere prijzen betaalt.\u003c/p\u003e\n",
+              "width": 60,
+              "quickMenu": {
+                "__typename": "Page_Blocks_Block_Text_QuickMenu",
+                "quickMenuTitle": null,
+                "showInQuickMenu": null
+              },
+              "sharedBlockSettings": {
+                "__typename": "Page_Blocks_Block_Text_SharedBlockSettings",
+                "colorPreset": "default",
+                "marginTop": null,
+                "marginBottom": "32",
+                "roofElement": null,
+                "partialBackground": null,
+                "partialBackgroundSide": "top",
+                "partialBackgroundColor": "KELLY_GREEN"
+              }
+            },
+            {
+              "__typename": "Page_Blocks_Block_Title",
+              "title": "Dit betalen onze  klanten gemiddeld",
+              "heading": "2",
+              "iconTitle": {
+                "__typename": "Page_Blocks_Block_Title_IconTitle",
+                "iconTitleActive": true,
+                "title": "Voor de laagste energierekening",
+                "iconPath": "fill/others/leaf-fill"
+              },
+              "sharedBlockSettings": {
+                "__typename": "Page_Blocks_Block_Title_SharedBlockSettings",
+                "marginTop": null,
+                "marginBottom": "16",
+                "colorPreset": "default",
+                "roofElement": null,
+                "partialBackground": null,
+                "partialBackgroundSide": "top",
+                "partialBackgroundColor": "KELLY_GREEN"
+              }
+            },
+            {
+              "__typename": "Page_Blocks_Block_Text",
+              "title": null,
+              "content": "\u003cp style=\"text-align: center;\"\u003eDynamische stroom- en gastarieven zijn \u003ca href=\"https://www.zonneplan.nl/blog/ook-zonder-verbruiksaanpassing-forse-besparing-met-dynamisch-contract-in-2024\"\u003eaantoonbaar goedkoper\u003c/a\u003e dan vaste stroomtarieven. Stuur jij jouw stroomverbruik naar goedkope uren? Dan bespaar je nog meer, zo laten onze klanten zien.\u003c/p\u003e\n",
+              "width": 60,
+              "quickMenu": {
+                "__typename": "Page_Blocks_Block_Text_QuickMenu",
+                "quickMenuTitle": null,
+                "showInQuickMenu": null
+              },
+              "sharedBlockSettings": {
+                "__typename": "Page_Blocks_Block_Text_SharedBlockSettings",
+                "colorPreset": "default",
+                "marginTop": null,
+                "marginBottom": "48",
+                "roofElement": null,
+                "partialBackground": null,
+                "partialBackgroundSide": "top",
+                "partialBackgroundColor": "KELLY_GREEN"
+              }
+            },
+            {
+              "__typename": "Page_Blocks_Block_EnergyPricesBlock",
+              "type": "electricity",
+              "switchType": "switch",
+              "displayType": "month",
+              "sharedBlockSettings": {
+                "__typename": "Page_Blocks_Block_EnergyPricesBlock_SharedBlockSettings",
+                "colorPreset": "default",
+                "marginTop": null,
+                "marginBottom": "64",
+                "roofElement": null,
+                "partialBackground": null,
+                "partialBackgroundSide": "top",
+                "partialBackgroundColor": "KELLY_GREEN"
+              }
+            },
+            {
+              "__typename": "Page_Blocks_Block_DownloadTheApp",
+              "text": "Bekijk de stroomprijs per uur in de app",
+              "subText": "De app is gratis te downloaden, ook als je nog geen klant bent.",
+              "image": {
+                "__typename": "MediaItem",
+                "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2023/06/app-1.png",
+                "altText": "",
+                "mediaDetails": {
+                  "__typename": "MediaDetails",
+                  "width": 471,
+                  "height": 327
+                }
+              },
+              "sharedBlockSettings": {
+                "__typename": "Page_Blocks_Block_DownloadTheApp_SharedBlockSettings",
+                "marginTop": "40",
+                "marginBottom": "40",
+                "colorPreset": "default",
+                "roofElement": null,
+                "partialBackground": null,
+                "partialBackgroundSide": "top",
+                "partialBackgroundColor": "KELLY_GREEN"
+              }
+            },
+            {
+              "__typename": "Page_Blocks_Block_CallToAction",
+              "title": "Bespaar per jaar op jouw energierekening",
+              "button": {
+                "__typename": "Page_Blocks_Block_CallToAction_Button",
+                "text": "Bereken je maandbedrag",
+                "link": "https://start.zonneplan.nl/energie"
+              },
+              "sharedBlockSettings": {
+                "__typename": "Page_Blocks_Block_CallToAction_SharedBlockSettings",
+                "colorPreset": "gray_black",
+                "marginTop": "64",
+                "marginBottom": "64",
+                "roofElement": null,
+                "partialBackground": null,
+                "partialBackgroundSide": "top",
+                "partialBackgroundColor": "KELLY_GREEN"
+              }
+            },
+            {
+              "__typename": "Page_Blocks_Block_TextImage",
+              "title": "Waarom wisselen  de stroomprijzen  per uur?",
+              "heading": "2",
+              "iconTitle": {
+                "__typename": "Page_Blocks_Block_TextImage_IconTitle",
+                "iconTitleActive": true,
+                "title": "Ontdek hoe het werkt",
+                "iconPath": "fill/business/medal-fill"
+              },
+              "text": "\u003cp\u003eZonneplan geeft Nederlandse huishoudens toegang tot de energiemarkt met stroomprijzen per uur. De markt bepaalt elk uur de prijs en jij bepaalt of je daar gebruik van wilt maken of niet. De dure uren staan voor stroom uit gas- en kolencentrales en tijdens \u003cstrong\u003egoedkope uren\u003c/strong\u003e maken de zon en de wind de dienst uit.\u003c/p\u003e\n",
+              "mediaType": "video",
+              "youtubeId": "0gHKW2VbEW4",
+              "image": {
+                "__typename": "MediaItem",
+                "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2023/06/prijsplafond.png",
+                "altText": "Zonneplan app toont de energiekosten ten opzichte van het prijsplafond",
+                "mediaDetails": {
+                  "__typename": "MediaDetails",
+                  "width": 458,
+                  "height": 531
+                }
+              },
+              "order": "text-image",
+              "imageUsp": null,
+              "alignment": "center",
+              "card": null,
+              "quickMenu": {
+                "__typename": "Page_Blocks_Block_TextImage_QuickMenu",
+                "quickMenuTitle": null,
+                "showInQuickMenu": null
+              },
+              "sharedBlockSettings": {
+                "__typename": "Page_Blocks_Block_TextImage_SharedBlockSettings",
+                "colorPreset": "white_black",
+                "marginTop": "96",
+                "marginBottom": "96",
+                "roofElement": null,
+                "partialBackground": null,
+                "partialBackgroundSide": "top",
+                "partialBackgroundColor": "KELLY_GREEN"
+              }
+            },
+            {
+              "__typename": "Page_Blocks_Block_TextImage",
+              "title": "Zonneplan app voor de laagste energierekening",
+              "heading": "2",
+              "iconTitle": {
+                "__typename": "Page_Blocks_Block_TextImage_IconTitle",
+                "iconTitleActive": true,
+                "title": "De beste energieprijzen",
+                "iconPath": "fill/business/medal-fill"
+              },
+              "text": "\u003cp\u003e\u003cstrong\u003eInzicht in actuele stroomprijzen\u003cbr /\u003e\n\u003c/strong\u003eDe Zonneplan app helpt jou stroom te gebruiken bij veel wind en zonneschijn. Profiteren van de groene daluren is zo een fluitje van een cent.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eLive verbruiksinzicht\u003cbr /\u003e\n\u003c/strong\u003eWeet jij nu hoeveel stroom jij verbruikt? Met Zonneplan Energie ben je live op de hoogte. Door dit inzicht verlagen onze klanten maandelijks hun verbruik. \u003cstrong\u003e\u003cbr /\u003e\n\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://start.zonneplan.nl/energie\"\u003eNeem Zonneplan Energie\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u0026nbsp;\u003c/p\u003e\n",
+              "mediaType": "image",
+              "youtubeId": "0gHKW2VbEW4",
+              "image": {
+                "__typename": "MediaItem",
+                "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2023/06/app-people.png",
+                "altText": "Zonneplan medewerkers laten dynamische energieprijzen zien in de Zonneplan app",
+                "mediaDetails": {
+                  "__typename": "MediaDetails",
+                  "width": 755,
+                  "height": 721
+                }
+              },
+              "order": "image-text",
+              "imageUsp": null,
+              "alignment": "end",
+              "card": null,
+              "quickMenu": {
+                "__typename": "Page_Blocks_Block_TextImage_QuickMenu",
+                "quickMenuTitle": null,
+                "showInQuickMenu": null
+              },
+              "sharedBlockSettings": {
+                "__typename": "Page_Blocks_Block_TextImage_SharedBlockSettings",
+                "colorPreset": "kellygreenlight_black",
+                "marginTop": "96",
+                "marginBottom": null,
+                "roofElement": null,
+                "partialBackground": null,
+                "partialBackgroundSide": "top",
+                "partialBackgroundColor": "KELLY_GREEN"
+              }
+            },
+            {
+              "__typename": "Page_Blocks_Block_TextImage",
+              "title": "Energieprijzen verwachting",
+              "heading": "2",
+              "iconTitle": {
+                "__typename": "Page_Blocks_Block_TextImage_IconTitle",
+                "iconTitleActive": null,
+                "title": "De beste energieprijzen",
+                "iconPath": "fill/business/medal-fill"
+              },
+              "text": "\u003cp\u003eWat de stroom- en gasprijs precies gaat doen, weten we allemaal niet. Wel kunnen we een verwachting geven. Lees de energieprijzen van morgen, het energieweerbericht voor de komende week en een ontwikkeling voor de energieprijzen van de komende maand en komend seizoen.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://www.zonneplan.nl/energie/energieprijzen-verwachting\"\u003eEnergieprijzen verwachting \u0026gt;\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u0026nbsp;\u003c/p\u003e\n\u003cp\u003e\u0026nbsp;\u003c/p\u003e\n",
+              "mediaType": "image",
+              "youtubeId": null,
+              "image": {
+                "__typename": "MediaItem",
+                "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2025/03/energieprijs-verwachting-zomer2025-quote.png",
+                "altText": "Quote van energie-expert Wilko Aalbers over de energieprijs verwachting van 2025",
+                "mediaDetails": {
+                  "__typename": "MediaDetails",
+                  "width": 1115,
+                  "height": 760
+                }
+              },
+              "order": "text-image",
+              "imageUsp": null,
+              "alignment": "end",
+              "card": null,
+              "quickMenu": {
+                "__typename": "Page_Blocks_Block_TextImage_QuickMenu",
+                "quickMenuTitle": null,
+                "showInQuickMenu": null
+              },
+              "sharedBlockSettings": {
+                "__typename": "Page_Blocks_Block_TextImage_SharedBlockSettings",
+                "colorPreset": "white_black",
+                "marginTop": "96",
+                "marginBottom": null,
+                "roofElement": null,
+                "partialBackground": null,
+                "partialBackgroundSide": "top",
+                "partialBackgroundColor": "KELLY_GREEN"
+              }
+            },
+            {
+              "__typename": "Page_Blocks_Block_Title",
+              "title": "Vergelijk dynamische energieprijzen",
+              "heading": "2",
+              "iconTitle": {
+                "__typename": "Page_Blocks_Block_Title_IconTitle",
+                "iconTitleActive": null,
+                "title": null,
+                "iconPath": null
+              },
+              "sharedBlockSettings": {
+                "__typename": "Page_Blocks_Block_Title_SharedBlockSettings",
+                "marginTop": "96",
+                "marginBottom": "24",
+                "colorPreset": "gray_black",
+                "roofElement": null,
+                "partialBackground": null,
+                "partialBackgroundSide": "top",
+                "partialBackgroundColor": "KELLY_GREEN"
+              }
+            },
+            {
+              "__typename": "Page_Blocks_Block_Text",
+              "title": null,
+              "content": "\u003cp\u003eWe helpen je een handje bij het \u003ca href=\"/energie/vergelijken\"\u003evergelijken van dynamische energieleveranciers\u003c/a\u003e. Hier vind je een duidelijk overzicht van de verschillende aanbieders. Dit overzicht is gerangschikt op basis van de inkoopvergoeding.\u003c/p\u003e\n",
+              "width": null,
+              "quickMenu": {
+                "__typename": "Page_Blocks_Block_Text_QuickMenu",
+                "quickMenuTitle": null,
+                "showInQuickMenu": null
+              },
+              "sharedBlockSettings": {
+                "__typename": "Page_Blocks_Block_Text_SharedBlockSettings",
+                "colorPreset": "gray_black",
+                "marginTop": null,
+                "marginBottom": "96",
+                "roofElement": null,
+                "partialBackground": null,
+                "partialBackgroundSide": "top",
+                "partialBackgroundColor": "KELLY_GREEN"
+              }
+            },
+            {
+              "__typename": "Page_Blocks_Block_LatestNews",
+              "title": "Het laatste energienieuws ",
+              "heading": "2",
+              "iconTitle": {
+                "__typename": "Page_Blocks_Block_LatestNews_IconTitle",
+                "iconTitleActive": true,
+                "title": "Zonneplan updates ",
+                "iconPath": "fill/weather/cloud-windy-fill"
+              },
+              "buttonText": "Bekijk al het nieuws",
+              "buttonLink": "/blog",
+              "postsByTag": [
+                {
+                  "__typename": "Tag",
+                  "posts": {
+                    "__typename": "TagToPostConnection",
+                    "nodes": [
+                      {
+                        "__typename": "Post",
+                        "id": "cG9zdDo0NzIyNA==",
+                        "databaseId": 47224,
+                        "title": "Zonneplan introduceert unieke zonnebonus: extra vergoeding voor zonnepanelenbezitters",
+                        "slug": "zonneplan-introduceert-zonnebonus",
+                        "excerpt": "\u003cp\u003eZonneplan gaat klanten met zonnepanelen vanaf 1 april 2025 een extra vergoeding betalen voor de stroom die zij terugleveren. Daarmee belonen we zonnepaneelbezitters voor hun bijdrage aan de energietransitie. Deze ‘zonnebonus’ komt op een opvallend moment: veel energiebedrijven kwamen de laatste tijd juist met hoge terugleverkosten of schrappen de (netto) terugleververgoeding per 2027 zelfs vrijwel volledig.\u003c/p\u003e\n",
+                        "blog_attributes": {
+                          "__typename": "Post_BlogAttributes",
+                          "likes": 292
+                        },
+                        "assignedAuthor": {
+                          "__typename": "Post_Assignedauthor",
+                          "author": {
+                            "__typename": "Employee",
+                            "title": "Frank Breukelman",
+                            "slug": "frank-breukelman",
+                            "content": "\u003ch2\u003eOver Frank Breukelman\u003c/h2\u003e\n\u003cp\u003eFrank maakt nieuws op basis van data. Verbruiks- en prijsdata van onze klanten, panelonderzoeken en externe data dienen vaak als startpunt van de persberichten. Zijn interessegebied ligt voornamelijk bij de onderwerpen (dynamische) energie, duurzaamheid en (elektrische) mobiliteit.\u003c/p\u003e\n\u003cp\u003e\u003ca style=\"color: #00aa65; text-decoration: none; font-weight: bold;\" href=\"/auteurs\"\u003e\u0026lt; Bekijk alle auteurs\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u0026nbsp;\u003c/p\u003e\n",
+                            "employeeInfo": {
+                              "__typename": "Employee_Employeeinfo",
+                              "shortText": "\u003cp\u003e\u003ca id=\"authorname\" href=\"https://www.zonneplan.nl/auteurs/frank-breukelman\"\u003eFrank Breukelman\u003c/a\u003e is een van de auteurs op de website van Zonneplan. Zijn interessegebied ligt voornamelijk bij (dynamische) energie, duurzaamheid en (elektrische) mobiliteit.\u003c/p\u003e\n",
+                              "function": "PR specialist",
+                              "image": {
+                                "__typename": "MediaItem",
+                                "id": "cG9zdDozMDM1Mg==",
+                                "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2023/11/Frank.png"
+                              }
+                            }
+                          }
+                        },
+                        "featuredImage": {
+                          "__typename": "NodeWithFeaturedImageToMediaItemConnectionEdge",
+                          "node": {
+                            "__typename": "MediaItem",
+                            "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2025/03/800X450.jpg"
+                          }
+                        },
+                        "categories": {
+                          "__typename": "PostToCategoryConnection",
+                          "nodes": [
+                            {
+                              "__typename": "Category",
+                              "name": "Energie",
+                              "slug": "energie"
+                            },
+                            {
+                              "__typename": "Category",
+                              "name": "Zonnepanelen",
+                              "slug": "zonnepanelen"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__typename": "Post",
+                        "id": "cG9zdDo0NjQ2OA==",
+                        "databaseId": 46468,
+                        "title": "Zonneplan: markt vergoedt zonnestroom na salderen minstens 160 euro per jaar te laag",
+                        "slug": "eerlijke-vergoeding-zonnestroom-teruglevering",
+                        "excerpt": "\u003cp\u003eWat is de stroom van je zonnepanelen nu écht waard? Zonneplan zocht uit wat klanten met Zonneplan Energie in 2024 kregen voor hun teruggeleverde stroom.\u003c/p\u003e\n",
+                        "blog_attributes": {
+                          "__typename": "Post_BlogAttributes",
+                          "likes": 89
+                        },
+                        "assignedAuthor": {
+                          "__typename": "Post_Assignedauthor",
+                          "author": {
+                            "__typename": "Employee",
+                            "title": "Frank Breukelman",
+                            "slug": "frank-breukelman",
+                            "content": "\u003ch2\u003eOver Frank Breukelman\u003c/h2\u003e\n\u003cp\u003eFrank maakt nieuws op basis van data. Verbruiks- en prijsdata van onze klanten, panelonderzoeken en externe data dienen vaak als startpunt van de persberichten. Zijn interessegebied ligt voornamelijk bij de onderwerpen (dynamische) energie, duurzaamheid en (elektrische) mobiliteit.\u003c/p\u003e\n\u003cp\u003e\u003ca style=\"color: #00aa65; text-decoration: none; font-weight: bold;\" href=\"/auteurs\"\u003e\u0026lt; Bekijk alle auteurs\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u0026nbsp;\u003c/p\u003e\n",
+                            "employeeInfo": {
+                              "__typename": "Employee_Employeeinfo",
+                              "shortText": "\u003cp\u003e\u003ca id=\"authorname\" href=\"https://www.zonneplan.nl/auteurs/frank-breukelman\"\u003eFrank Breukelman\u003c/a\u003e is een van de auteurs op de website van Zonneplan. Zijn interessegebied ligt voornamelijk bij (dynamische) energie, duurzaamheid en (elektrische) mobiliteit.\u003c/p\u003e\n",
+                              "function": "PR specialist",
+                              "image": {
+                                "__typename": "MediaItem",
+                                "id": "cG9zdDozMDM1Mg==",
+                                "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2023/11/Frank.png"
+                              }
+                            }
+                          }
+                        },
+                        "featuredImage": {
+                          "__typename": "NodeWithFeaturedImageToMediaItemConnectionEdge",
+                          "node": {
+                            "__typename": "MediaItem",
+                            "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2025/03/terugleververgoeding-zonnepanelen-e1742198684792.jpg"
+                          }
+                        },
+                        "categories": {
+                          "__typename": "PostToCategoryConnection",
+                          "nodes": [
+                            {
+                              "__typename": "Category",
+                              "name": "Energie",
+                              "slug": "energie"
+                            },
+                            {
+                              "__typename": "Category",
+                              "name": "Zonnepanelen",
+                              "slug": "zonnepanelen"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__typename": "Post",
+                        "id": "cG9zdDozOTg1NA==",
+                        "databaseId": 39854,
+                        "title": "Zes op de tien Zonneplan Energie-gebruikers wassen alleen tijdens goedkope uren",
+                        "slug": "onderzoek-gebruik-dynamische-stroomprijzen",
+                        "excerpt": "\u003cp\u003eRuim 60% van de Zonneplan Energie-gebruikers houdt vaak of zelfs altijd rekening met de uurprijzen bij het doen van de (vaat)was. Lees hier alles over ons onderzoek!\u003c/p\u003e\n",
+                        "blog_attributes": {
+                          "__typename": "Post_BlogAttributes",
+                          "likes": 10
+                        },
+                        "assignedAuthor": {
+                          "__typename": "Post_Assignedauthor",
+                          "author": {
+                            "__typename": "Employee",
+                            "title": "Frank Breukelman",
+                            "slug": "frank-breukelman",
+                            "content": "\u003ch2\u003eOver Frank Breukelman\u003c/h2\u003e\n\u003cp\u003eFrank maakt nieuws op basis van data. Verbruiks- en prijsdata van onze klanten, panelonderzoeken en externe data dienen vaak als startpunt van de persberichten. Zijn interessegebied ligt voornamelijk bij de onderwerpen (dynamische) energie, duurzaamheid en (elektrische) mobiliteit.\u003c/p\u003e\n\u003cp\u003e\u003ca style=\"color: #00aa65; text-decoration: none; font-weight: bold;\" href=\"/auteurs\"\u003e\u0026lt; Bekijk alle auteurs\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u0026nbsp;\u003c/p\u003e\n",
+                            "employeeInfo": {
+                              "__typename": "Employee_Employeeinfo",
+                              "shortText": "\u003cp\u003e\u003ca id=\"authorname\" href=\"https://www.zonneplan.nl/auteurs/frank-breukelman\"\u003eFrank Breukelman\u003c/a\u003e is een van de auteurs op de website van Zonneplan. Zijn interessegebied ligt voornamelijk bij (dynamische) energie, duurzaamheid en (elektrische) mobiliteit.\u003c/p\u003e\n",
+                              "function": "PR specialist",
+                              "image": {
+                                "__typename": "MediaItem",
+                                "id": "cG9zdDozMDM1Mg==",
+                                "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2023/11/Frank.png"
+                              }
+                            }
+                          }
+                        },
+                        "featuredImage": {
+                          "__typename": "NodeWithFeaturedImageToMediaItemConnectionEdge",
+                          "node": {
+                            "__typename": "MediaItem",
+                            "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2024/11/Zonneplan-app-wasmachine.png"
+                          }
+                        },
+                        "categories": {
+                          "__typename": "PostToCategoryConnection",
+                          "nodes": [
+                            {
+                              "__typename": "Category",
+                              "name": "Energie",
+                              "slug": "energie"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__typename": "Post",
+                        "id": "cG9zdDozNjMwOQ==",
+                        "databaseId": 36309,
+                        "title": "Nieuw: Zonneplan-prijsplafond voor gas",
+                        "slug": "zonneplan-introduceert-prijsplafond-gas",
+                        "excerpt": "\u003cp\u003eZonneplan introduceert een prijsplafond voor gas. Profiteer van lage gasprijzen en geniet extra zekerheid bij onverwachte stijgingen.\u003c/p\u003e\n",
+                        "blog_attributes": {
+                          "__typename": "Post_BlogAttributes",
+                          "likes": 108
+                        },
+                        "assignedAuthor": {
+                          "__typename": "Post_Assignedauthor",
+                          "author": {
+                            "__typename": "Employee",
+                            "title": "Frank Breukelman",
+                            "slug": "frank-breukelman",
+                            "content": "\u003ch2\u003eOver Frank Breukelman\u003c/h2\u003e\n\u003cp\u003eFrank maakt nieuws op basis van data. Verbruiks- en prijsdata van onze klanten, panelonderzoeken en externe data dienen vaak als startpunt van de persberichten. Zijn interessegebied ligt voornamelijk bij de onderwerpen (dynamische) energie, duurzaamheid en (elektrische) mobiliteit.\u003c/p\u003e\n\u003cp\u003e\u003ca style=\"color: #00aa65; text-decoration: none; font-weight: bold;\" href=\"/auteurs\"\u003e\u0026lt; Bekijk alle auteurs\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u0026nbsp;\u003c/p\u003e\n",
+                            "employeeInfo": {
+                              "__typename": "Employee_Employeeinfo",
+                              "shortText": "\u003cp\u003e\u003ca id=\"authorname\" href=\"https://www.zonneplan.nl/auteurs/frank-breukelman\"\u003eFrank Breukelman\u003c/a\u003e is een van de auteurs op de website van Zonneplan. Zijn interessegebied ligt voornamelijk bij (dynamische) energie, duurzaamheid en (elektrische) mobiliteit.\u003c/p\u003e\n",
+                              "function": "PR specialist",
+                              "image": {
+                                "__typename": "MediaItem",
+                                "id": "cG9zdDozMDM1Mg==",
+                                "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2023/11/Frank.png"
+                              }
+                            }
+                          }
+                        },
+                        "featuredImage": {
+                          "__typename": "NodeWithFeaturedImageToMediaItemConnectionEdge",
+                          "node": {
+                            "__typename": "MediaItem",
+                            "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2024/09/Prijsplafond-gas-verwarming.png"
+                          }
+                        },
+                        "categories": {
+                          "__typename": "PostToCategoryConnection",
+                          "nodes": [
+                            {
+                              "__typename": "Category",
+                              "name": "Energie",
+                              "slug": "energie"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__typename": "Post",
+                        "id": "cG9zdDozMjEzOA==",
+                        "databaseId": 32138,
+                        "title": "Onderzoek wijst uit: ruim 22 procent besparen met dynamisch energiecontract",
+                        "slug": "dynamisch-energiecontract-goedkoper-dan-vast-of-variabel",
+                        "excerpt": "\u003cp\u003eIs een dynamisch energiecontract in de praktijk goedkoper dan een vast of variabel contract? Lees het hier!\u003c/p\u003e\n",
+                        "blog_attributes": {
+                          "__typename": "Post_BlogAttributes",
+                          "likes": 47
+                        },
+                        "assignedAuthor": {
+                          "__typename": "Post_Assignedauthor",
+                          "author": {
+                            "__typename": "Employee",
+                            "title": "Frank Breukelman",
+                            "slug": "frank-breukelman",
+                            "content": "\u003ch2\u003eOver Frank Breukelman\u003c/h2\u003e\n\u003cp\u003eFrank maakt nieuws op basis van data. Verbruiks- en prijsdata van onze klanten, panelonderzoeken en externe data dienen vaak als startpunt van de persberichten. Zijn interessegebied ligt voornamelijk bij de onderwerpen (dynamische) energie, duurzaamheid en (elektrische) mobiliteit.\u003c/p\u003e\n\u003cp\u003e\u003ca style=\"color: #00aa65; text-decoration: none; font-weight: bold;\" href=\"/auteurs\"\u003e\u0026lt; Bekijk alle auteurs\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u0026nbsp;\u003c/p\u003e\n",
+                            "employeeInfo": {
+                              "__typename": "Employee_Employeeinfo",
+                              "shortText": "\u003cp\u003e\u003ca id=\"authorname\" href=\"https://www.zonneplan.nl/auteurs/frank-breukelman\"\u003eFrank Breukelman\u003c/a\u003e is een van de auteurs op de website van Zonneplan. Zijn interessegebied ligt voornamelijk bij (dynamische) energie, duurzaamheid en (elektrische) mobiliteit.\u003c/p\u003e\n",
+                              "function": "PR specialist",
+                              "image": {
+                                "__typename": "MediaItem",
+                                "id": "cG9zdDozMDM1Mg==",
+                                "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2023/11/Frank.png"
+                              }
+                            }
+                          }
+                        },
+                        "featuredImage": {
+                          "__typename": "NodeWithFeaturedImageToMediaItemConnectionEdge",
+                          "node": {
+                            "__typename": "MediaItem",
+                            "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2024/05/dynamisch-energiecontract-goedkoper-dan-vast-contract-e1715002434649.jpg"
+                          }
+                        },
+                        "categories": {
+                          "__typename": "PostToCategoryConnection",
+                          "nodes": [
+                            {
+                              "__typename": "Category",
+                              "name": "Energie",
+                              "slug": "energie"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__typename": "Post",
+                        "id": "cG9zdDozMTk5OA==",
+                        "databaseId": 31998,
+                        "title": "Een op negen zonnepanelenbezitters betaalt terugleverheffing",
+                        "slug": "een-op-negen-zonnepanelenbezitters-betaalt-terugleverheffing",
+                        "excerpt": "\u003cp\u003eSteeds meer energiebedrijven rekenen terugleverheffingen. Wij deden onderzoek én vertellen waarom je met Zonneplan Energie niet bang hoeft te zijn voor terugleverboetes!\u003c/p\u003e\n",
+                        "blog_attributes": {
+                          "__typename": "Post_BlogAttributes",
+                          "likes": 85
+                        },
+                        "assignedAuthor": {
+                          "__typename": "Post_Assignedauthor",
+                          "author": {
+                            "__typename": "Employee",
+                            "title": "Frank Breukelman",
+                            "slug": "frank-breukelman",
+                            "content": "\u003ch2\u003eOver Frank Breukelman\u003c/h2\u003e\n\u003cp\u003eFrank maakt nieuws op basis van data. Verbruiks- en prijsdata van onze klanten, panelonderzoeken en externe data dienen vaak als startpunt van de persberichten. Zijn interessegebied ligt voornamelijk bij de onderwerpen (dynamische) energie, duurzaamheid en (elektrische) mobiliteit.\u003c/p\u003e\n\u003cp\u003e\u003ca style=\"color: #00aa65; text-decoration: none; font-weight: bold;\" href=\"/auteurs\"\u003e\u0026lt; Bekijk alle auteurs\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u0026nbsp;\u003c/p\u003e\n",
+                            "employeeInfo": {
+                              "__typename": "Employee_Employeeinfo",
+                              "shortText": "\u003cp\u003e\u003ca id=\"authorname\" href=\"https://www.zonneplan.nl/auteurs/frank-breukelman\"\u003eFrank Breukelman\u003c/a\u003e is een van de auteurs op de website van Zonneplan. Zijn interessegebied ligt voornamelijk bij (dynamische) energie, duurzaamheid en (elektrische) mobiliteit.\u003c/p\u003e\n",
+                              "function": "PR specialist",
+                              "image": {
+                                "__typename": "MediaItem",
+                                "id": "cG9zdDozMDM1Mg==",
+                                "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2023/11/Frank.png"
+                              }
+                            }
+                          }
+                        },
+                        "featuredImage": {
+                          "__typename": "NodeWithFeaturedImageToMediaItemConnectionEdge",
+                          "node": {
+                            "__typename": "MediaItem",
+                            "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2024/04/terugleverheffing-zonnepanelen.jpg"
+                          }
+                        },
+                        "categories": {
+                          "__typename": "PostToCategoryConnection",
+                          "nodes": [
+                            {
+                              "__typename": "Category",
+                              "name": "Energie",
+                              "slug": "energie"
+                            },
+                            {
+                              "__typename": "Category",
+                              "name": "Zonnepanelen",
+                              "slug": "zonnepanelen"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__typename": "Post",
+                        "id": "cG9zdDozMTM5NA==",
+                        "databaseId": 31394,
+                        "title": "Voor het eerst gratis stroom in 2024",
+                        "slug": "voor-het-eerst-gratis-stroom-in-2024",
+                        "excerpt": "\u003cp\u003eZaterdag 6 april is stroom voor het eerst in 2024 gratis. Lees er hier alles over!\u003c/p\u003e\n",
+                        "blog_attributes": {
+                          "__typename": "Post_BlogAttributes",
+                          "likes": 102
+                        },
+                        "assignedAuthor": {
+                          "__typename": "Post_Assignedauthor",
+                          "author": {
+                            "__typename": "Employee",
+                            "title": "Frank Breukelman",
+                            "slug": "frank-breukelman",
+                            "content": "\u003ch2\u003eOver Frank Breukelman\u003c/h2\u003e\n\u003cp\u003eFrank maakt nieuws op basis van data. Verbruiks- en prijsdata van onze klanten, panelonderzoeken en externe data dienen vaak als startpunt van de persberichten. Zijn interessegebied ligt voornamelijk bij de onderwerpen (dynamische) energie, duurzaamheid en (elektrische) mobiliteit.\u003c/p\u003e\n\u003cp\u003e\u003ca style=\"color: #00aa65; text-decoration: none; font-weight: bold;\" href=\"/auteurs\"\u003e\u0026lt; Bekijk alle auteurs\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u0026nbsp;\u003c/p\u003e\n",
+                            "employeeInfo": {
+                              "__typename": "Employee_Employeeinfo",
+                              "shortText": "\u003cp\u003e\u003ca id=\"authorname\" href=\"https://www.zonneplan.nl/auteurs/frank-breukelman\"\u003eFrank Breukelman\u003c/a\u003e is een van de auteurs op de website van Zonneplan. Zijn interessegebied ligt voornamelijk bij (dynamische) energie, duurzaamheid en (elektrische) mobiliteit.\u003c/p\u003e\n",
+                              "function": "PR specialist",
+                              "image": {
+                                "__typename": "MediaItem",
+                                "id": "cG9zdDozMDM1Mg==",
+                                "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2023/11/Frank.png"
+                              }
+                            }
+                          }
+                        },
+                        "featuredImage": {
+                          "__typename": "NodeWithFeaturedImageToMediaItemConnectionEdge",
+                          "node": {
+                            "__typename": "MediaItem",
+                            "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2024/04/gratis-stroom-6-april-e1712319295575.png"
+                          }
+                        },
+                        "categories": {
+                          "__typename": "PostToCategoryConnection",
+                          "nodes": [
+                            {
+                              "__typename": "Category",
+                              "name": "Energie",
+                              "slug": "energie"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__typename": "Post",
+                        "id": "cG9zdDozMTE4NQ==",
+                        "databaseId": 31185,
+                        "title": "Vaker negatieve stroomprijs in eerste kwartaal dan vorig jaar",
+                        "slug": "vaker-negatieve-stroomprijs-in-eerste-kwartaal-dan-vorig-jaar",
+                        "excerpt": "\u003cp\u003eHet eerste kwartaal van 2024 kende meer uren met negatieve stroomprijzen dan het jaar ervoor. Hoeveel? Lees het hier!\u003c/p\u003e\n",
+                        "blog_attributes": {
+                          "__typename": "Post_BlogAttributes",
+                          "likes": 38
+                        },
+                        "assignedAuthor": {
+                          "__typename": "Post_Assignedauthor",
+                          "author": {
+                            "__typename": "Employee",
+                            "title": "Frank Breukelman",
+                            "slug": "frank-breukelman",
+                            "content": "\u003ch2\u003eOver Frank Breukelman\u003c/h2\u003e\n\u003cp\u003eFrank maakt nieuws op basis van data. Verbruiks- en prijsdata van onze klanten, panelonderzoeken en externe data dienen vaak als startpunt van de persberichten. Zijn interessegebied ligt voornamelijk bij de onderwerpen (dynamische) energie, duurzaamheid en (elektrische) mobiliteit.\u003c/p\u003e\n\u003cp\u003e\u003ca style=\"color: #00aa65; text-decoration: none; font-weight: bold;\" href=\"/auteurs\"\u003e\u0026lt; Bekijk alle auteurs\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u0026nbsp;\u003c/p\u003e\n",
+                            "employeeInfo": {
+                              "__typename": "Employee_Employeeinfo",
+                              "shortText": "\u003cp\u003e\u003ca id=\"authorname\" href=\"https://www.zonneplan.nl/auteurs/frank-breukelman\"\u003eFrank Breukelman\u003c/a\u003e is een van de auteurs op de website van Zonneplan. Zijn interessegebied ligt voornamelijk bij (dynamische) energie, duurzaamheid en (elektrische) mobiliteit.\u003c/p\u003e\n",
+                              "function": "PR specialist",
+                              "image": {
+                                "__typename": "MediaItem",
+                                "id": "cG9zdDozMDM1Mg==",
+                                "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2023/11/Frank.png"
+                              }
+                            }
+                          }
+                        },
+                        "featuredImage": {
+                          "__typename": "NodeWithFeaturedImageToMediaItemConnectionEdge",
+                          "node": {
+                            "__typename": "MediaItem",
+                            "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2024/04/besparen_met_zonneplan_energie.jpg"
+                          }
+                        },
+                        "categories": {
+                          "__typename": "PostToCategoryConnection",
+                          "nodes": [
+                            {
+                              "__typename": "Category",
+                              "name": "Energie",
+                              "slug": "energie"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__typename": "Post",
+                        "id": "cG9zdDozMDU3Ng==",
+                        "databaseId": 30576,
+                        "title": "Zonneplan introduceert Powerplay voor zonnepanelen",
+                        "slug": "introductie-powerplay-zonnepanelen",
+                        "excerpt": "\u003cp\u003eZonneplan introduceert: Powerplay voor zonnepanelen! Lees hier hoe jij nóg meer rendement uit je zonnepanelen kunt halen door te helpen het elektriciteitsnet te stabiliseren.\u003c/p\u003e\n",
+                        "blog_attributes": {
+                          "__typename": "Post_BlogAttributes",
+                          "likes": 74
+                        },
+                        "assignedAuthor": {
+                          "__typename": "Post_Assignedauthor",
+                          "author": {
+                            "__typename": "Employee",
+                            "title": "Frank Breukelman",
+                            "slug": "frank-breukelman",
+                            "content": "\u003ch2\u003eOver Frank Breukelman\u003c/h2\u003e\n\u003cp\u003eFrank maakt nieuws op basis van data. Verbruiks- en prijsdata van onze klanten, panelonderzoeken en externe data dienen vaak als startpunt van de persberichten. Zijn interessegebied ligt voornamelijk bij de onderwerpen (dynamische) energie, duurzaamheid en (elektrische) mobiliteit.\u003c/p\u003e\n\u003cp\u003e\u003ca style=\"color: #00aa65; text-decoration: none; font-weight: bold;\" href=\"/auteurs\"\u003e\u0026lt; Bekijk alle auteurs\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u0026nbsp;\u003c/p\u003e\n",
+                            "employeeInfo": {
+                              "__typename": "Employee_Employeeinfo",
+                              "shortText": "\u003cp\u003e\u003ca id=\"authorname\" href=\"https://www.zonneplan.nl/auteurs/frank-breukelman\"\u003eFrank Breukelman\u003c/a\u003e is een van de auteurs op de website van Zonneplan. Zijn interessegebied ligt voornamelijk bij (dynamische) energie, duurzaamheid en (elektrische) mobiliteit.\u003c/p\u003e\n",
+                              "function": "PR specialist",
+                              "image": {
+                                "__typename": "MediaItem",
+                                "id": "cG9zdDozMDM1Mg==",
+                                "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2023/11/Frank.png"
+                              }
+                            }
+                          }
+                        },
+                        "featuredImage": {
+                          "__typename": "NodeWithFeaturedImageToMediaItemConnectionEdge",
+                          "node": {
+                            "__typename": "MediaItem",
+                            "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2024/02/Zonneplan-Powerplay-zonnepanelen-e1710859273528.png"
+                          }
+                        },
+                        "categories": {
+                          "__typename": "PostToCategoryConnection",
+                          "nodes": [
+                            {
+                              "__typename": "Category",
+                              "name": "Energie",
+                              "slug": "energie"
+                            },
+                            {
+                              "__typename": "Category",
+                              "name": "Zonnepanelen",
+                              "slug": "zonnepanelen"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__typename": "Post",
+                        "id": "cG9zdDoyMjU3OQ==",
+                        "databaseId": 22579,
+                        "title": "Is een dynamisch energiecontract verstandig met zonnepanelen?",
+                        "slug": "is-een-dynamisch-energiecontract-verstandig-met-zonnepanelen",
+                        "excerpt": "\u003cp\u003eGaat een dynamisch energiecontract samen met zonnepanelen of kun je beter voor een contract met vaste tarieven kiezen? Wij zochten het uit!\u003c/p\u003e\n",
+                        "blog_attributes": {
+                          "__typename": "Post_BlogAttributes",
+                          "likes": 233
+                        },
+                        "assignedAuthor": {
+                          "__typename": "Post_Assignedauthor",
+                          "author": {
+                            "__typename": "Employee",
+                            "title": "Frank Breukelman",
+                            "slug": "frank-breukelman",
+                            "content": "\u003ch2\u003eOver Frank Breukelman\u003c/h2\u003e\n\u003cp\u003eFrank maakt nieuws op basis van data. Verbruiks- en prijsdata van onze klanten, panelonderzoeken en externe data dienen vaak als startpunt van de persberichten. Zijn interessegebied ligt voornamelijk bij de onderwerpen (dynamische) energie, duurzaamheid en (elektrische) mobiliteit.\u003c/p\u003e\n\u003cp\u003e\u003ca style=\"color: #00aa65; text-decoration: none; font-weight: bold;\" href=\"/auteurs\"\u003e\u0026lt; Bekijk alle auteurs\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u0026nbsp;\u003c/p\u003e\n",
+                            "employeeInfo": {
+                              "__typename": "Employee_Employeeinfo",
+                              "shortText": "\u003cp\u003e\u003ca id=\"authorname\" href=\"https://www.zonneplan.nl/auteurs/frank-breukelman\"\u003eFrank Breukelman\u003c/a\u003e is een van de auteurs op de website van Zonneplan. Zijn interessegebied ligt voornamelijk bij (dynamische) energie, duurzaamheid en (elektrische) mobiliteit.\u003c/p\u003e\n",
+                              "function": "PR specialist",
+                              "image": {
+                                "__typename": "MediaItem",
+                                "id": "cG9zdDozMDM1Mg==",
+                                "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2023/11/Frank.png"
+                              }
+                            }
+                          }
+                        },
+                        "featuredImage": {
+                          "__typename": "NodeWithFeaturedImageToMediaItemConnectionEdge",
+                          "node": {
+                            "__typename": "MediaItem",
+                            "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2023/02/zonnepanelen-dynamisch-energiecontract.jpg"
+                          }
+                        },
+                        "categories": {
+                          "__typename": "PostToCategoryConnection",
+                          "nodes": [
+                            {
+                              "__typename": "Category",
+                              "name": "Energie",
+                              "slug": "energie"
+                            },
+                            {
+                              "__typename": "Category",
+                              "name": "Zonnepanelen",
+                              "slug": "zonnepanelen"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "sharedBlockSettings": {
+                "__typename": "Page_Blocks_Block_LatestNews_SharedBlockSettings",
+                "marginTop": "64",
+                "marginBottom": "96",
+                "colorPreset": "default",
+                "roofElement": null,
+                "partialBackground": null,
+                "partialBackgroundSide": "top",
+                "partialBackgroundColor": "KELLY_GREEN"
+              }
+            },
+            {
+              "__typename": "Page_Blocks_Block_Title",
+              "title": "Lees meer over...",
+              "heading": "2",
+              "iconTitle": {
+                "__typename": "Page_Blocks_Block_Title_IconTitle",
+                "iconTitleActive": null,
+                "title": null,
+                "iconPath": null
+              },
+              "sharedBlockSettings": {
+                "__typename": "Page_Blocks_Block_Title_SharedBlockSettings",
+                "marginTop": "96",
+                "marginBottom": "24",
+                "colorPreset": "kellygreen_white",
+                "roofElement": null,
+                "partialBackground": null,
+                "partialBackgroundSide": "top",
+                "partialBackgroundColor": "KELLY_GREEN"
+              }
+            },
+            {
+              "__typename": "Page_Blocks_Block_RelatedPosts",
+              "posts": [
+                {
+                  "__typename": "Page_Blocks_Block_RelatedPosts_posts",
+                  "title": "Stroomprijzen per uur",
+                  "subtitle": "Wat kost 1 kWh?",
+                  "post": {
+                    "__typename": "Page",
+                    "slug": "stroomprijs",
+                    "title": "Stroomprijzen",
+                    "uri": "https://www.zonneplan.nl/energie/dynamische-energieprijzen/stroomprijs/"
+                  }
+                },
+                {
+                  "__typename": "Page_Blocks_Block_RelatedPosts_posts",
+                  "title": "Wat is de gasprijs vandaag?",
+                  "subtitle": "Live inzicht",
+                  "post": {
+                    "__typename": "Page",
+                    "slug": "gasprijs",
+                    "title": "Gasprijs",
+                    "uri": "https://www.zonneplan.nl/energie/dynamische-energieprijzen/gasprijs/"
+                  }
+                },
+                {
+                  "__typename": "Page_Blocks_Block_RelatedPosts_posts",
+                  "title": "Energie besparen",
+                  "subtitle": "Handige bespaartips",
+                  "post": {
+                    "__typename": "Post",
+                    "slug": "energie-besparen",
+                    "title": "Energie besparen: welke apparaten doen ertoe?",
+                    "uri": "https://www.zonneplan.nl/blog/energie-besparen/"
+                  }
+                },
+                {
+                  "__typename": "Page_Blocks_Block_RelatedPosts_posts",
+                  "title": "Dynamisch energiecontract",
+                  "subtitle": "Hoe werkt het?",
+                  "post": {
+                    "__typename": "Page",
+                    "slug": "dynamisch-energiecontract",
+                    "title": "Dynamisch energiecontract",
+                    "uri": "https://www.zonneplan.nl/energie/dynamisch-energiecontract/"
+                  }
+                },
+                {
+                  "__typename": "Page_Blocks_Block_RelatedPosts_posts",
+                  "title": "Negatieve stroomprijzen",
+                  "subtitle": "Geld terugkrijgen i.p.v. betalen",
+                  "post": {
+                    "__typename": "Page",
+                    "slug": "negatieve-stroomprijzen",
+                    "title": "Negatieve stroomprijzen",
+                    "uri": "https://www.zonneplan.nl/energie/dynamische-energieprijzen/negatieve-stroomprijzen/"
+                  }
+                },
+                {
+                  "__typename": "Page_Blocks_Block_RelatedPosts_posts",
+                  "title": "Enkeltarief of dubbeltarief",
+                  "subtitle": "Wat is het verschil?",
+                  "post": {
+                    "__typename": "Page",
+                    "slug": "enkeltarief-of-dubbeltarief",
+                    "title": "Enkeltarief of dubbeltarief",
+                    "uri": "https://www.zonneplan.nl/energie/informatie-over-energiecontracten/enkeltarief-of-dubbeltarief/"
+                  }
+                }
+              ],
+              "sharedBlockSettings": {
+                "__typename": "Page_Blocks_Block_RelatedPosts_SharedBlockSettings",
+                "marginTop": "24",
+                "marginBottom": "24",
+                "colorPreset": "kellygreen_white",
+                "roofElement": null,
+                "partialBackground": null,
+                "partialBackgroundSide": "top",
+                "partialBackgroundColor": "KELLY_GREEN"
+              }
+            },
+            {
+              "__typename": "Page_Blocks_Block_Text",
+              "title": null,
+              "content": "\u003cp style=\"text-align: center; color: white;\"\u003e\u003ca href=\"https://www.zonneplan.nl/kenniscentrum/energie\"\u003e\u003cstrong\u003eLees meer over (dynamische) energie in ons kenniscentrum \u0026gt;\u003c/strong\u003e\u003c/a\u003e\u003c/p\u003e\n",
+              "width": null,
+              "quickMenu": {
+                "__typename": "Page_Blocks_Block_Text_QuickMenu",
+                "quickMenuTitle": null,
+                "showInQuickMenu": null
+              },
+              "sharedBlockSettings": {
+                "__typename": "Page_Blocks_Block_Text_SharedBlockSettings",
+                "colorPreset": "kellygreen_white",
+                "marginTop": "24",
+                "marginBottom": "96",
+                "roofElement": null,
+                "partialBackground": null,
+                "partialBackgroundSide": "top",
+                "partialBackgroundColor": "KELLY_GREEN"
+              }
+            },
+            {
+              "__typename": "Page_Blocks_Block_Accordion",
+              "title": "Vragen over dynamische energietarieven",
+              "items": [
+                {
+                  "__typename": "Page_Blocks_Block_Accordion_items",
+                  "title": "Wat zijn de energieprijzen momenteel?",
+                  "content": "\u003cp\u003eDe huidige tarieven voor stroom schommelen tussen € 0,10 en € 0,35 per kWh (met af en toe uitschieters naar boven en beneden), en de gasprijzen rond € 1,30 per m³ \u003cem\u003e(update: maart 2025).\u003c/em\u003e Bekijk bovenaan deze pagina de tarieven die vandaag gelden. Bij stroom wisselen deze per uur, en bij gas per dag (bij een \u003ca href=\"/energie/dynamisch-energiecontract\"\u003edynamisch energiecontract\u003c/a\u003e).\u003c/p\u003e\n"
+                },
+                {
+                  "__typename": "Page_Blocks_Block_Accordion_items",
+                  "title": "Hoeveel bespaar je met dynamische energieprijzen?",
+                  "content": "\u003cp\u003eHet mooie van stroom voor uurprijzen is dat jij zelf jouw besparing kunt bepalen. Hoe meer jij jouw energieverbruik naar de goedkope en groene \u003ca href=\"https://www.zonneplan.nl/energie/piek-en-daluren\"\u003edaluren\u003c/a\u003e verplaatst, hoe meer jij jouw stroomprijs verlaagt. Alleen een wasmachine of de vaatwasser kan al een groot verschil maken.\u003c/p\u003e\n"
+                },
+                {
+                  "__typename": "Page_Blocks_Block_Accordion_items",
+                  "title": "Wat is de verwachting voor de energieprijzen?",
+                  "content": "\u003cp\u003eDe energieprijzen variëren continu. We geven \u003ca href=\"https://www.zonneplan.nl/energie/energieprijzen-verwachting\"\u003eeen up-to-date verwachting van de energietarieven\u003c/a\u003e van morgen, de komende week, komende maand en komend jaar.\u003c/p\u003e\n\u003cp\u003eDe prijs wordt grofweg beïnvloed door 3 factoren.\u003c/p\u003e\n\u003col\u003e\n\u003cli aria-level=\"1\"\u003e\u003cstrong\u003eVraag en aanbod\u003c/strong\u003e\u003cbr /\u003e\nDe \u003ca href=\"https://www.zonneplan.nl/energie/energiemarkten\"\u003eenergiemarkten\u003c/a\u003e bepalen de prijs van jouw energie. Aanbod wordt bijvoorbeeld beïnvloed door het opwekken van wind- en zonne-energie. Dan daalt de prijs per kWh. De vraag beïnvloeden we zelf. Komen we na werktijd allemaal thuis en zetten we onze wasmachine, kookplaat en droger aan? Dan stijgt de prijs.\u003c/li\u003e\n\u003cli aria-level=\"1\"\u003e\u003cstrong\u003e\u003ca href=\"https://www.zonneplan.nl/kenniscentrum/zonnepanelen/weersinvloeden\"\u003eWeersinvloeden\u003c/a\u003e \u003c/strong\u003e\u003cbr /\u003e\nVraag en aanbod worden mede bepaald door het weer. Hoe meer de zon schijnt en de wind waait; hoe meer aanbod van duurzaam opgewekte en goedkope energie. Geen wind of zon aanwezig? Dan draaien kolen- en gascentrales. Deze stroom is veel duurder en bovendien vervuilender. Maar ook een koude winter zorgt voor meer vraag naar gas en dus een hogere energieprijs.\u003c/li\u003e\n\u003cli aria-level=\"1\"\u003e\u003cstrong\u003eGeopolitieke ontwikkelingen\u003c/strong\u003e\u003cbr /\u003e\nHet Nederlandse elektriciteitsnet staat in verbinding met het net van bijvoorbeeld Duitsland, België, het Verenigd Koninkrijk en Noorwegen. Ontwikkelingen in deze landen hebben dus invloed op de totstandkoming van de energieprijzen in Nederland.\u003c/li\u003e\n\u003c/ol\u003e\n"
+                },
+                {
+                  "__typename": "Page_Blocks_Block_Accordion_items",
+                  "title": "Hoe kan je (dynamische) energieprijzen vergelijken?",
+                  "content": "\u003cp\u003eDynamische energieleveranciers bieden stroom op basis van inkoopprijs aan. Toch zit er tussen de aanbieders verschil.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eInkoopvergoeding\u003c/strong\u003e\u003cbr /\u003e\nIeder dynamische energieleverancier heeft in zijn \u003ca href=\"https://www.zonneplan.nl/energie/dynamische-energieprijzen/kwh-prijs\"\u003ekWh-prijs\u003c/a\u003e een inkoopvergoeding verwerkt. Dit zijn inkoopkosten die de energieleverancier maakt om energie voor je in te kopen, zoals transport-, administratie- en onbalanskosten. Deze fee wisselt per energieleverancier.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eMaandelijkse kosten\u003c/strong\u003e\u003cbr /\u003e\nJe betaalt bij iedere (dynamische) energieleverancier een vast bedrag per maand per product, dus gas en/of stroom. Hiervoor krijg jij bij Zonneplan bijvoorbeeld LIVE inzicht in energieprijzen en jouw verbruik via de Zonneplan app.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eInzicht\u003c/strong\u003e\u003cbr /\u003e\nHoe meer inzicht je hebt in jouw verbruik, hoe meer mogelijkheden om te besparen. Met de Zonneplan app zie je jouw verbruik live terug in de app. Door middel van kleuren (rood, grijs en groen) zie je direct welke uren voordelig zijn om apparaten aan te zetten. Hierdoor kun je maximaal gaan besparen.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003ca href=\"https://www.zonneplan.nl/energie/vergelijken\"\u003eBekijk overzicht van de goedkoopste dynamische energieleveranciers\u003c/a\u003e.\u003c/p\u003e\n"
+                },
+                {
+                  "__typename": "Page_Blocks_Block_Accordion_items",
+                  "title": "Hoe werkt salderen met dynamische energieprijzen?",
+                  "content": "\u003cp\u003eMet dynamische energieprijzen betaal je voor je verbruikte energie de op dat uur geldende stroomprijs. Bij het terugleveren van stroom krijg je exact dezelfde prijs terug die op dat moment ook geldt, inclusief energiebelasting en btw. Lees meer over \u003ca href=\"https://www.zonneplan.nl/zonnepanelen/salderen\"\u003esalderen met een dynamisch energiecontract\u003c/a\u003e en wat er in de toekomst gaat veranderen.\u003c/p\u003e\n"
+                },
+                {
+                  "__typename": "Page_Blocks_Block_Accordion_items",
+                  "title": "Betaal je terugleverkosten bij dynamische energieprijzen?",
+                  "content": "\u003cp\u003eHeb je zonnepanelen en een dynamisch energiecontract van Zonneplan? Dan betaal je geen \u003ca href=\"https://www.zonneplan.nl/energie/zonnepanelen/terugleverkosten\"\u003eterugleverkosten\u003c/a\u003e. In plaats van terugleverkosten betalen, ontvang je de dynamische elektriciteitsprijs voor de stroom die je teruglevert. Deze prijs geldt zowel voor de stroom die je afneemt als voor de stroom die je teruglevert aan het net.\u003c/p\u003e\n\u003cp\u003eDit betekent dat de vergoeding die je krijgt voor de teruggeleverde stroom varieert bij een dynamisch energiecontract. Doordat je altijd tegen de huidige marktprijs teruglevert maakt de energieleverancier geen onverwacht hoge kosten.\u003c/p\u003e\n"
+                }
+              ],
+              "quickMenu": {
+                "__typename": "Page_Blocks_Block_Accordion_QuickMenu",
+                "quickMenuTitle": null,
+                "showInQuickMenu": null
+              },
+              "sharedBlockSettings": {
+                "__typename": "Page_Blocks_Block_Accordion_SharedBlockSettings",
+                "colorPreset": "default",
+                "marginTop": "96",
+                "marginBottom": "96",
+                "roofElement": null,
+                "partialBackground": null,
+                "partialBackgroundSide": "top",
+                "partialBackgroundColor": "KELLY_GREEN"
+              }
+            },
+            {
+              "__typename": "Page_Blocks_Block_CtaFullpage",
+              "title": "Stap vandaag over op dynamische energie",
+              "content": "Verlaag jouw energierekening met stroom en gas op basis van inkoopprijs: betaal minder voor energie. Wij zeggen je huidige energiecontract voor je op.",
+              "button": {
+                "__typename": "Page_Blocks_Block_CtaFullpage_Button",
+                "content": "Bereken jouw maandbedrag",
+                "link": "https://start.zonneplan.nl/energie"
+              },
+              "backgroundImage": {
+                "__typename": "MediaItem",
+                "mediaItemUrl": "https://zonneplan-site.s3.amazonaws.com/uploads/2023/06/Zonneplan-energie-besparen.jpeg"
+              },
+              "alignment": "start"
+            }
+          ],
+          "chargingStationInformation": {
+            "__typename": "SiteSettings_Chargepricing",
+            "zcCostsChargingStationMin": 650,
+            "zcCostsChargingStationMax": 1200,
+            "zcCostsInstallationMin": 600,
+            "zcCostsInstallationMax": 1900,
+            "zcCostsFuseBoxMin": 200,
+            "zcCostsFuseBoxMax": 350,
+            "zcCostsMountingPoleMin": 150,
+            "zcCostsMountingPoleMax": 1000,
+            "zcCostsDlbMin": 100,
+            "zcCostsDlbMax": 250,
+            "zcCostsDiggingRange": 45
+          },
+          "energyData": {
+            "__typename": "EnergyData",
+            "electricity": {
+              "__typename": "Electricity",
+              "hours": [
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T21:00:00.000000Z",
+                  "priceTotalTaxIncluded": 2636093,
+                  "marketPrice": 997900,
+                  "priceInclHandlingVat": 1407459,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "normal"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T20:00:00.000000Z",
+                  "priceTotalTaxIncluded": 3071330,
+                  "marketPrice": 1357600,
+                  "priceInclHandlingVat": 1842696,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "normal"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T19:00:00.000000Z",
+                  "priceTotalTaxIncluded": 3756311,
+                  "marketPrice": 1923700,
+                  "priceInclHandlingVat": 2527677,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "high"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T18:00:00.000000Z",
+                  "priceTotalTaxIncluded": 3756069,
+                  "marketPrice": 1923500,
+                  "priceInclHandlingVat": 2527435,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "high"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T17:00:00.000000Z",
+                  "priceTotalTaxIncluded": 3018695,
+                  "marketPrice": 1314100,
+                  "priceInclHandlingVat": 1790061,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "normal"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T16:00:00.000000Z",
+                  "priceTotalTaxIncluded": 2503719,
+                  "marketPrice": 888500,
+                  "priceInclHandlingVat": 1275085,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "normal"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T15:00:00.000000Z",
+                  "priceTotalTaxIncluded": 1870284,
+                  "marketPrice": 365000,
+                  "priceInclHandlingVat": 641650,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "low"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T14:00:00.000000Z",
+                  "priceTotalTaxIncluded": 1428029,
+                  "marketPrice": -500,
+                  "priceInclHandlingVat": 199395,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "low"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T13:00:00.000000Z",
+                  "priceTotalTaxIncluded": 1392334,
+                  "marketPrice": -30000,
+                  "priceInclHandlingVat": 163700,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "low"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T12:00:00.000000Z",
+                  "priceTotalTaxIncluded": 1334859,
+                  "marketPrice": -77500,
+                  "priceInclHandlingVat": 106225,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "low"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T11:00:00.000000Z",
+                  "priceTotalTaxIncluded": 1269277,
+                  "marketPrice": -131700,
+                  "priceInclHandlingVat": 40643,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "low"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T10:00:00.000000Z",
+                  "priceTotalTaxIncluded": 1391488,
+                  "marketPrice": -30699,
+                  "priceInclHandlingVat": 162854,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "low"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T09:00:00.000000Z",
+                  "priceTotalTaxIncluded": 1416534,
+                  "marketPrice": -10000,
+                  "priceInclHandlingVat": 187900,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "low"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T08:00:00.000000Z",
+                  "priceTotalTaxIncluded": 1428392,
+                  "marketPrice": -200,
+                  "priceInclHandlingVat": 199758,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "low"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T07:00:00.000000Z",
+                  "priceTotalTaxIncluded": 1440734,
+                  "marketPrice": 10000,
+                  "priceInclHandlingVat": 212100,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "low"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T06:00:00.000000Z",
+                  "priceTotalTaxIncluded": 2079735,
+                  "marketPrice": 538100,
+                  "priceInclHandlingVat": 851101,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "low"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T05:00:00.000000Z",
+                  "priceTotalTaxIncluded": 2466814,
+                  "marketPrice": 858000,
+                  "priceInclHandlingVat": 1238180,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "normal"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T04:00:00.000000Z",
+                  "priceTotalTaxIncluded": 2575593,
+                  "marketPrice": 947900,
+                  "priceInclHandlingVat": 1346959,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "normal"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T03:00:00.000000Z",
+                  "priceTotalTaxIncluded": 2548852,
+                  "marketPrice": 925800,
+                  "priceInclHandlingVat": 1320218,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "normal"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T02:00:00.000000Z",
+                  "priceTotalTaxIncluded": 2567605,
+                  "marketPrice": 941299,
+                  "priceInclHandlingVat": 1338971,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "normal"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T01:00:00.000000Z",
+                  "priceTotalTaxIncluded": 2561555,
+                  "marketPrice": 936299,
+                  "priceInclHandlingVat": 1332921,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "normal"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T00:00:00.000000Z",
+                  "priceTotalTaxIncluded": 2575835,
+                  "marketPrice": 948100,
+                  "priceInclHandlingVat": 1347201,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "normal"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-30T23:00:00.000000Z",
+                  "priceTotalTaxIncluded": 2610804,
+                  "marketPrice": 977000,
+                  "priceInclHandlingVat": 1382170,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "normal"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-30T22:00:00.000000Z",
+                  "priceTotalTaxIncluded": 2723334,
+                  "marketPrice": 1070000,
+                  "priceInclHandlingVat": 1494700,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "normal"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-30T21:00:00.000000Z",
+                  "priceTotalTaxIncluded": 2737249,
+                  "marketPrice": 1081500,
+                  "priceInclHandlingVat": 1508615,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "normal"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-30T20:00:00.000000Z",
+                  "priceTotalTaxIncluded": 3003933,
+                  "marketPrice": 1301900,
+                  "priceInclHandlingVat": 1775299,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "normal"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-30T19:00:00.000000Z",
+                  "priceTotalTaxIncluded": 3245812,
+                  "marketPrice": 1501800,
+                  "priceInclHandlingVat": 2017178,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "high"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-30T18:00:00.000000Z",
+                  "priceTotalTaxIncluded": 3065401,
+                  "marketPrice": 1352700,
+                  "priceInclHandlingVat": 1836767,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "normal"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-30T17:00:00.000000Z",
+                  "priceTotalTaxIncluded": 2759634,
+                  "marketPrice": 1100000,
+                  "priceInclHandlingVat": 1531000,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "normal"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-30T16:00:00.000000Z",
+                  "priceTotalTaxIncluded": 2276118,
+                  "marketPrice": 700400,
+                  "priceInclHandlingVat": 1047484,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "low"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-30T15:00:00.000000Z",
+                  "priceTotalTaxIncluded": 1513334,
+                  "marketPrice": 70000,
+                  "priceInclHandlingVat": 284700,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "low"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-30T14:00:00.000000Z",
+                  "priceTotalTaxIncluded": 1428271,
+                  "marketPrice": -300,
+                  "priceInclHandlingVat": 199637,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "low"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-30T13:00:00.000000Z",
+                  "priceTotalTaxIncluded": 1407822,
+                  "marketPrice": -17200,
+                  "priceInclHandlingVat": 179188,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "low"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-30T12:00:00.000000Z",
+                  "priceTotalTaxIncluded": 1390035,
+                  "marketPrice": -31900,
+                  "priceInclHandlingVat": 161401,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "low"
+                },
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-30T11:00:00.000000Z",
+                  "priceTotalTaxIncluded": 1394512,
+                  "marketPrice": -28200,
+                  "priceInclHandlingVat": 165878,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "low"
+                }
+              ],
+              "months": [
+                {
+                  "__typename": "ElectricityMonth",
+                  "dateTime": "2025-04-01T13:57:34.000000Z",
+                  "cbs": 0.27,
+                  "normal": 0.24,
+                  "smart": 0.18
+                },
+                {
+                  "__typename": "ElectricityMonth",
+                  "dateTime": "2025-03-01T13:57:34.000000Z",
+                  "cbs": 0.28,
+                  "normal": 0.26,
+                  "smart": 0.21
+                },
+                {
+                  "__typename": "ElectricityMonth",
+                  "dateTime": "2025-02-01T13:57:34.000000Z",
+                  "cbs": 0.28,
+                  "normal": 0.3,
+                  "smart": 0.28
+                },
+                {
+                  "__typename": "ElectricityMonth",
+                  "dateTime": "2025-01-01T13:57:34.000000Z",
+                  "cbs": 0.28,
+                  "normal": 0.28,
+                  "smart": 0.25
+                },
+                {
+                  "__typename": "ElectricityMonth",
+                  "dateTime": "2024-12-01T13:57:34.000000Z",
+                  "cbs": 0.29,
+                  "normal": 0.28,
+                  "smart": 0.25
+                },
+                {
+                  "__typename": "ElectricityMonth",
+                  "dateTime": "2024-11-01T13:57:34.000000Z",
+                  "cbs": 0.29,
+                  "normal": 0.29,
+                  "smart": 0.27
+                },
+                {
+                  "__typename": "ElectricityMonth",
+                  "dateTime": "2024-10-01T13:57:34.000000Z",
+                  "cbs": 0.29,
+                  "normal": 0.26,
+                  "smart": 0.21
+                },
+                {
+                  "__typename": "ElectricityMonth",
+                  "dateTime": "2024-09-01T13:57:34.000000Z",
+                  "cbs": 0.28,
+                  "normal": 0.24,
+                  "smart": 0.21
+                },
+                {
+                  "__typename": "ElectricityMonth",
+                  "dateTime": "2024-08-01T13:57:34.000000Z",
+                  "cbs": 0.28,
+                  "normal": 0.24,
+                  "smart": 0.21
+                },
+                {
+                  "__typename": "ElectricityMonth",
+                  "dateTime": "2024-07-01T13:57:34.000000Z",
+                  "cbs": 0.29,
+                  "normal": 0.23,
+                  "smart": 0.19
+                },
+                {
+                  "__typename": "ElectricityMonth",
+                  "dateTime": "2024-06-01T13:57:34.000000Z",
+                  "cbs": 0.3,
+                  "normal": 0.23,
+                  "smart": 0.19
+                },
+                {
+                  "__typename": "ElectricityMonth",
+                  "dateTime": "2024-05-01T13:57:34.000000Z",
+                  "cbs": 0.3,
+                  "normal": 0.23,
+                  "smart": 0.18
+                }
+              ]
+            },
+            "gas": {
+              "__typename": "Gas",
+              "days": [
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-30T04:00:00.000000Z",
+                  "marketPrice": 3461216,
+                  "priceTotalTaxIncluded": 11983807,
+                  "priceInclHandlingVat": 4988071,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-29T04:00:00.000000Z",
+                  "marketPrice": 3578840,
+                  "priceTotalTaxIncluded": 12126132,
+                  "priceInclHandlingVat": 5130396,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-28T04:00:00.000000Z",
+                  "marketPrice": 3598672,
+                  "priceTotalTaxIncluded": 12150129,
+                  "priceInclHandlingVat": 5154393,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-27T04:00:00.000000Z",
+                  "marketPrice": 3541912,
+                  "priceTotalTaxIncluded": 12081449,
+                  "priceInclHandlingVat": 5085713,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-26T04:00:00.000000Z",
+                  "marketPrice": 3538395,
+                  "priceTotalTaxIncluded": 12077194,
+                  "priceInclHandlingVat": 5081458,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-25T04:00:00.000000Z",
+                  "marketPrice": 3538395,
+                  "priceTotalTaxIncluded": 12077194,
+                  "priceInclHandlingVat": 5081458,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-24T04:00:00.000000Z",
+                  "marketPrice": 3538395,
+                  "priceTotalTaxIncluded": 12077194,
+                  "priceInclHandlingVat": 5081458,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-23T04:00:00.000000Z",
+                  "marketPrice": 3550704,
+                  "priceTotalTaxIncluded": 12092088,
+                  "priceInclHandlingVat": 5096352,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-22T04:00:00.000000Z",
+                  "marketPrice": 3631791,
+                  "priceTotalTaxIncluded": 12190203,
+                  "priceInclHandlingVat": 5194467,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-21T04:00:00.000000Z",
+                  "marketPrice": 3580013,
+                  "priceTotalTaxIncluded": 12127552,
+                  "priceInclHandlingVat": 5131816,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-20T04:00:00.000000Z",
+                  "marketPrice": 3420087,
+                  "priceTotalTaxIncluded": 11934041,
+                  "priceInclHandlingVat": 4938305,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-19T04:00:00.000000Z",
+                  "marketPrice": 3437281,
+                  "priceTotalTaxIncluded": 11954846,
+                  "priceInclHandlingVat": 4959110,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-18T04:00:00.000000Z",
+                  "marketPrice": 3430247,
+                  "priceTotalTaxIncluded": 11946335,
+                  "priceInclHandlingVat": 4950599,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-17T04:00:00.000000Z",
+                  "marketPrice": 3430247,
+                  "priceTotalTaxIncluded": 11946335,
+                  "priceInclHandlingVat": 4950599,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-16T04:00:00.000000Z",
+                  "marketPrice": 3409243,
+                  "priceTotalTaxIncluded": 11920920,
+                  "priceInclHandlingVat": 4925184,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-15T04:00:00.000000Z",
+                  "marketPrice": 3396640,
+                  "priceTotalTaxIncluded": 11905670,
+                  "priceInclHandlingVat": 4909934,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-14T04:00:00.000000Z",
+                  "marketPrice": 3463170,
+                  "priceTotalTaxIncluded": 11986172,
+                  "priceInclHandlingVat": 4990436,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-13T04:00:00.000000Z",
+                  "marketPrice": 3472060,
+                  "priceTotalTaxIncluded": 11996929,
+                  "priceInclHandlingVat": 5001193,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-12T04:00:00.000000Z",
+                  "marketPrice": 3386773,
+                  "priceTotalTaxIncluded": 11893731,
+                  "priceInclHandlingVat": 4897995,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-11T04:00:00.000000Z",
+                  "marketPrice": 3385503,
+                  "priceTotalTaxIncluded": 11892195,
+                  "priceInclHandlingVat": 4896459,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-10T04:00:00.000000Z",
+                  "marketPrice": 3385503,
+                  "priceTotalTaxIncluded": 11892195,
+                  "priceInclHandlingVat": 4896459,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-09T04:00:00.000000Z",
+                  "marketPrice": 3433764,
+                  "priceTotalTaxIncluded": 11950590,
+                  "priceInclHandlingVat": 4954854,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-08T04:00:00.000000Z",
+                  "marketPrice": 3392049,
+                  "priceTotalTaxIncluded": 11900115,
+                  "priceInclHandlingVat": 4904379,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-07T04:00:00.000000Z",
+                  "marketPrice": 3389313,
+                  "priceTotalTaxIncluded": 11896805,
+                  "priceInclHandlingVat": 4901069,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-06T04:00:00.000000Z",
+                  "marketPrice": 3251271,
+                  "priceTotalTaxIncluded": 11729774,
+                  "priceInclHandlingVat": 4734038,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-05T04:00:00.000000Z",
+                  "marketPrice": 3235249,
+                  "priceTotalTaxIncluded": 11710387,
+                  "priceInclHandlingVat": 4714651,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-04T04:00:00.000000Z",
+                  "marketPrice": 3235249,
+                  "priceTotalTaxIncluded": 11710387,
+                  "priceInclHandlingVat": 4714651,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-03T04:00:00.000000Z",
+                  "marketPrice": 3235249,
+                  "priceTotalTaxIncluded": 11710387,
+                  "priceInclHandlingVat": 4714651,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-02T04:00:00.000000Z",
+                  "marketPrice": 3118016,
+                  "priceTotalTaxIncluded": 11568535,
+                  "priceInclHandlingVat": 4572799,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                },
+                {
+                  "__typename": "GasDay",
+                  "dateTime": "2025-05-01T04:00:00.000000Z",
+                  "marketPrice": 3117918,
+                  "priceTotalTaxIncluded": 11568417,
+                  "priceInclHandlingVat": 4572681,
+                  "priceEnergyTaxes": 6995736,
+                  "priceCbsAverage": 1.45
+                }
+              ],
+              "months": [
+                {
+                  "__typename": "GasMonth",
+                  "dateTime": "2025-04-01T13:57:34.000000Z",
+                  "cbs": 1.35,
+                  "normal": 1.2
+                },
+                {
+                  "__typename": "GasMonth",
+                  "dateTime": "2025-03-01T13:57:34.000000Z",
+                  "cbs": 1.35,
+                  "normal": 1.28
+                },
+                {
+                  "__typename": "GasMonth",
+                  "dateTime": "2025-02-01T13:57:34.000000Z",
+                  "cbs": 1.35,
+                  "normal": 1.39
+                },
+                {
+                  "__typename": "GasMonth",
+                  "dateTime": "2025-01-01T13:57:34.000000Z",
+                  "cbs": 1.33,
+                  "normal": 1.31
+                },
+                {
+                  "__typename": "GasMonth",
+                  "dateTime": "2024-12-01T13:57:34.000000Z",
+                  "cbs": 1.32,
+                  "normal": 1.32
+                },
+                {
+                  "__typename": "GasMonth",
+                  "dateTime": "2024-11-01T13:57:34.000000Z",
+                  "cbs": 1.32,
+                  "normal": 1.31
+                },
+                {
+                  "__typename": "GasMonth",
+                  "dateTime": "2024-10-01T13:57:34.000000Z",
+                  "cbs": 1.32,
+                  "normal": 1.26
+                },
+                {
+                  "__typename": "GasMonth",
+                  "dateTime": "2024-09-01T13:57:34.000000Z",
+                  "cbs": 1.29,
+                  "normal": 1.22
+                },
+                {
+                  "__typename": "GasMonth",
+                  "dateTime": "2024-08-01T13:57:34.000000Z",
+                  "cbs": 1.29,
+                  "normal": 1.23
+                },
+                {
+                  "__typename": "GasMonth",
+                  "dateTime": "2024-07-01T13:57:34.000000Z",
+                  "cbs": 1.28,
+                  "normal": 1.17
+                },
+                {
+                  "__typename": "GasMonth",
+                  "dateTime": "2024-06-01T13:57:34.000000Z",
+                  "cbs": 1.29,
+                  "normal": 1.19
+                },
+                {
+                  "__typename": "GasMonth",
+                  "dateTime": "2024-05-01T13:57:34.000000Z",
+                  "cbs": 1.3,
+                  "normal": 1.16
+                }
+              ]
+            }
+          },
+          "batteryDemoInstallation": null,
+          "breadcrumbs": [
+            {
+              "__typename": "SEOPostTypeBreadcrumbs",
+              "title": "Home",
+              "url": "https://backend.zonneplan.nl/"
+            },
+            {
+              "__typename": "SEOPostTypeBreadcrumbs",
+              "title": "Energie",
+              "url": "https://www.zonneplan.nl/energie/"
+            },
+            {
+              "__typename": "SEOPostTypeBreadcrumbs",
+              "title": "Energieprijzen",
+              "url": "https://www.zonneplan.nl/energie/dynamische-energieprijzen/"
+            }
+          ]
+        }
+      },
+      "layout": { "header": { "theme": "transparent" } },
+      "seo": {
+        "__typename": "PostTypeSEO",
+        "title": "Dynamische energieprijzen: bewezen goedkoper dan vast",
+        "metaDesc": "Dynamische energietarieven liggen gemiddeld lager dan vaste energieprijzen. Krijg live inzicht in de stroomprijs per uur en gasprijs per dag.",
+        "canonical": "",
+        "opengraphTitle": "Dynamische energieprijzen: bewezen goedkoper dan vast",
+        "opengraphImage": null,
+        "opengraphSiteName": "Zonneplan",
+        "opengraphDescription": "Dynamische energietarieven liggen gemiddeld lager dan vaste energieprijzen. Krijg live inzicht in de stroomprijs per uur en gasprijs per dag.",
+        "opengraphUrl": "https://www.zonneplan.nl/energie/dynamische-energieprijzen/",
+        "readingTime": 6,
+        "breadcrumbs": [
+          {
+            "__typename": "SEOPostTypeBreadcrumbs",
+            "title": "Home",
+            "url": "https://backend.zonneplan.nl/"
+          },
+          {
+            "__typename": "SEOPostTypeBreadcrumbs",
+            "title": "Energie",
+            "url": "https://www.zonneplan.nl/energie/"
+          },
+          {
+            "__typename": "SEOPostTypeBreadcrumbs",
+            "title": "Energieprijzen",
+            "url": "https://www.zonneplan.nl/energie/dynamische-energieprijzen/"
+          }
+        ]
+      },
+      "static": true
+    },
+    "appData": {
+      "siteNotification": "",
+      "ratings": {
+        "totalAverage": 9.3,
+        "totalReviews": "27.434",
+        "zonneplan": { "rating": "9.4", "amount": 19904 },
+        "facebook": { "rating": "8.6", "amount": 629 },
+        "klantenvertellen": { "rating": "9.2", "amount": 3078 },
+        "google": { "rating": "8.8", "amount": 1820 },
+        "feedbackCompany": { "rating": "9.2", "amount": 2003 }
+      },
+      "openingHours": [
+        {
+          "open": "2025/05/30 08:00:00",
+          "close": "2025/05/30 18:00:00",
+          "date": "2025/05/30"
+        },
+        {
+          "open": "2025/05/31 10:00:00",
+          "close": "2025/05/31 17:00:00",
+          "date": "2025/05/31"
+        },
+        { "open": null, "close": null, "date": "2025/06/01" },
+        {
+          "open": "2025/06/02 08:00:00",
+          "close": "2025/06/02 20:30:00",
+          "date": "2025/06/02"
+        },
+        {
+          "open": "2025/06/03 08:00:00",
+          "close": "2025/06/03 20:30:00",
+          "date": "2025/06/03"
+        },
+        {
+          "open": "2025/06/04 08:00:00",
+          "close": "2025/06/04 20:30:00",
+          "date": "2025/06/04"
+        },
+        {
+          "open": "2025/06/05 08:00:00",
+          "close": "2025/06/05 20:30:00",
+          "date": "2025/06/05"
+        }
+      ],
+      "growthBookFeatures": {
+        "zhb-header-hero": { "defaultValue": true },
+        "gbdemo-checkout-layout": {
+          "defaultValue": "current",
+          "rules": [{ "condition": { "is_employee": true }, "force": "dev" }]
+        },
+        "ze-start-calculation-energy-insight-discount": {
+          "defaultValue": true,
+          "rules": [
+            {
+              "variations": [true, false],
+              "coverage": 1,
+              "weights": [0.5, 0.5],
+              "hashAttribute": "client_id",
+              "meta": [{ "key": "0" }, { "key": "1" }]
+            }
+          ]
+        },
+        "ze-calculation-page": {
+          "defaultValue": {
+            "title": "Het voordeel van dynamisch",
+            "subTitle": "Dagelijks gratis opzegbaar",
+            "cta": "Bespaar 15% met verbruiksinzicht",
+            "showAppStoreButtons": true,
+            "showEuroSign": true,
+            "nextButtonText": "Volgende stap"
+          }
+        },
+        "ze-address-page": {
+          "defaultValue": {
+            "title": "Bereken je maandbedrag \u003cbr /\u003e voor Zonneplan Energie",
+            "description": "Bewezen goedkoper dan vast en variabel",
+            "nextButtonText": "Bereken",
+            "initialTab": "calculator",
+            "microCopy": { "calculator": "", "manual": "" }
+          }
+        },
+        "zp-energie-hero": {
+          "defaultValue": {
+            "titleGreen": "Dynamische energie",
+            "cta": [
+              "Aantoonbaar goedkoper dan vast én variabel.",
+              "Dagelijks gratis opzegbaar."
+            ],
+            "buttonText": "Bereken je aanbod",
+            "usp1": "Aantoonbaar goedkoper dan vast en variabel",
+            "usp2": "Geen terugleverkosten met zonnepanelen",
+            "usp3": "Wij regelen jouw overstap"
+          }
+        },
+        "ze-mandate-page": {
+          "defaultValue": {
+            "title": "Bevestig je rekeningnummer",
+            "subtitle": "",
+            "description": "Om je rekeningnummer te verifiëren moet je een 1 cent iDEAL-betaling uitvoeren. Dit is om je maandelijkse energiekosten te kunnen incasseren.",
+            "nextButtonText": "Aanmelden en maandelijks betalen"
+          }
+        },
+        "ze-energy-solar-landing": {
+          "defaultValue": {
+            "hero": {
+              "upperTitle": "Het energiecontract voor zonnepanelen",
+              "title": {
+                "darkGreen": "Geen terugleverkosten,",
+                "kellyGreen": "wel zonnebonus"
+              },
+              "usps": [
+                "Verlaag je energierekening",
+                "Krijg meer voor je zonnestroom",
+                "Wij regelen jouw overstap"
+              ]
+            },
+            "ctaButtonText": "Bereken je aanbod",
+            "microCopy": null
+          },
+          "rules": [
+            {
+              "coverage": 1,
+              "hashAttribute": "client_id",
+              "seed": "13e604dd-3168-4a6e-8128-ff544d3f9ef8",
+              "hashVersion": 2,
+              "variations": [
+                {
+                  "hero": {
+                    "upperTitle": "Het energiecontract voor zonnepanelen",
+                    "title": {
+                      "darkGreen": "Geen terugleverkosten,",
+                      "kellyGreen": "wel zonnebonus"
+                    },
+                    "usps": [
+                      "Verlaag je energierekening",
+                      "Krijg meer voor je zonnestroom",
+                      "Wij regelen jouw overstap"
+                    ]
+                  },
+                  "ctaButtonText": "Bereken je aanbod",
+                  "microCopy": null
+                },
+                {
+                  "hero": {
+                    "upperTitle": "Het energiecontract voor zonnepanelen",
+                    "title": {
+                      "darkGreen": "Geen terugleverkosten,",
+                      "kellyGreen": "wel zonnebonus"
+                    },
+                    "usps": [
+                      "Verlaag je energierekening",
+                      "Krijg meer voor je zonnestroom",
+                      "Wij regelen jouw overstap"
+                    ]
+                  },
+                  "ctaButtonText": "Bereken je aanbod",
+                  "microCopy": { "content": "Direct inzicht in jouw besparing" }
+                }
+              ],
+              "weights": [0.5, 0.5],
+              "key": "ze-energy-solar-landing",
+              "phase": "0",
+              "meta": [{ "key": "0" }, { "key": "1" }]
+            }
+          ]
+        },
+        "ze-start-aanvraagstraat-p1-poort": {
+          "defaultValue": {
+            "skip": false,
+            "titleText": "Is je P1-poort nog vrij?",
+            "subtitleText": "De Zonneplan Connect wordt aangesloten op de P1-poort van jouw slimme meter. Vul de volgende vraag in zodat je de juiste Connect krijgt.",
+            "nextButtonText": "Volgende stap"
+          },
+          "rules": [
+            {
+              "coverage": 1,
+              "hashAttribute": "client_id",
+              "seed": "1bfab62e-a80c-4a6a-9437-a7281334c222",
+              "hashVersion": 2,
+              "force": {
+                "skip": true,
+                "titleText": "Is je P1-poort nog vrij?",
+                "subtitleText": "De Zonneplan Connect wordt aangesloten op de P1-poort van jouw slimme meter. Vul de volgende vraag in zodat je de juiste Connect krijgt.",
+                "nextButtonText": "Volgende stap"
+              }
+            }
+          ]
+        },
+        "ze-start-aanvraagstraat-one-click-aanmelding": {
+          "defaultValue": {
+            "title": "Aanvraag voor Zonneplan Energie",
+            "subtitle": "Wij zeggen je huidige contract op",
+            "cta": {
+              "text": "Aanmelden en maandelijks betalen",
+              "microCopy": "Elke dag opzegbaar, zonder boete"
+            }
+          }
+        },
+        "ze-start-aanvraagstraat-connect-stap": {
+          "defaultValue": { "skip": false }
+        },
+        "ze-start-application": {
+          "defaultValue": { "showProgressBar": false }
+        },
+        "ze-start-basic-info-page": {
+          "defaultValue": {
+            "titleText": "Nog enkele gegevens",
+            "subtitleText": "",
+            "nextButtonText": "Ga verder"
+          }
+        },
+        "ze-start-check-submission-page": {
+          "defaultValue": {
+            "titleText": "Controleer je aanvraag",
+            "subtitleText": null,
+            "nextButtonText": "Ga verder"
+          }
+        },
+        "ze-energy-submission-single-page-flow": {
+          "defaultValue": {
+            "steps": {
+              "calculator": {
+                "titleText": "Bereken je aanbod voor Zonneplan Energie",
+                "subtitleText": "Bewezen goedkoper dan vast en variabel",
+                "addressTitleText": "Vul je adres in",
+                "usageTitleText": "Vul je verbruik in",
+                "nextButtonText": "Bereken",
+                "microCopyText": null
+              },
+              "singlePageContractInfo": {
+                "titleText": "Het voordeel van dynamisch",
+                "solarPanelsTitleText": "Het beste energiecontract voor zonnepanelen",
+                "calculationShowEuroSign": true,
+                "subtitleText": "Verwacht energieverbruik",
+                "personalInformationTitleText": "Jouw gegevens",
+                "switchTypeTitleText": "Kies je situatie",
+                "switchTypeNoteText": "Wij regelen jouw overstap. Je komt nooit zonder stroom of gas te zitten.",
+                "nextButtonText": "Doorgaan",
+                "microCopyText": "Je zit nergens aan vast, gratis opzegbaar",
+                "enhancePriceBreakdown": false
+              },
+              "mandate": {
+                "titleText": "Bevestig je rekeningnummer",
+                "subtitleText": "Om je rekeningnummer te verifiëren moet je een 1 cent iDEAL-betaling uitvoeren. Dit is om je maandelijkse energiekosten te kunnen incasseren.",
+                "paymentInfoText": "Betaal veilig met je bank",
+                "nextButtonText": "Aanmelden en maandelijks betalen"
+              }
+            }
+          }
+        },
+        "zp-header_cta": {
+          "defaultValue": {
+            "title": "Ook besparen met zonnepanelen?",
+            "advantages": [
+              "Bespaar gemiddeld € 1.096 per jaar",
+              "100% achteraf betalen",
+              "Meer dan 150.000 tevreden klanten"
+            ],
+            "formTitle": "Ontvang gratis offerte",
+            "buttonText": "Aan de slag",
+            "microCopy": {
+              "content": "Binnen \u003cstrong\u003e60 seconden\u003c/strong\u003e geregeld!",
+              "url": ""
+            },
+            "showUspsOnMobile": false
+          }
+        },
+        "zp-quickscan": {
+          "defaultValue": false,
+          "rules": [{ "condition": { "client_id": "test" }, "force": true }]
+        },
+        "zp-solarscan-auto-appointment": {
+          "defaultValue": true,
+          "rules": [
+            { "force": true, "coverage": 1, "hashAttribute": "client_id" }
+          ]
+        },
+        "zp-start-sign-up-form": {
+          "defaultValue": {
+            "title": "Zonnepanelen offerte aanvragen",
+            "subtitle": "Vul je gegevens in en wij berekenen jouw voordeel",
+            "buttonText": "Advies aanvragen",
+            "notice": "Gratis en vrijblijvend"
+          },
+          "rules": [
+            {
+              "coverage": 1,
+              "hashAttribute": "client_id",
+              "seed": "0677df01-885d-4865-ada6-1631cbd6f139",
+              "hashVersion": 2,
+              "variations": [
+                {
+                  "title": "Zonnepanelen offerte aanvragen",
+                  "subtitle": "Vul je gegevens in en wij berekenen jouw voordeel",
+                  "buttonText": "Advies aanvragen",
+                  "notice": "Gratis en vrijblijvend"
+                },
+                {
+                  "title": "Zonnepanelen offerte aanvragen",
+                  "subtitle": "Vul je gegevens in en wij berekenen jouw voordeel",
+                  "buttonText": "Advies aanvragen",
+                  "notice": "Je zit nergens aan vast"
+                }
+              ],
+              "weights": [0.5, 0.5],
+              "key": "zp-start-sign-up-form",
+              "phase": "0",
+              "meta": [{ "key": "0" }, { "key": "1" }]
+            }
+          ]
+        },
+        "zp-start-zonnescan-address": {
+          "defaultValue": {
+            "title": "Zonnepanelen offerte aanvragen",
+            "subtitle": "Voer je adres in en wij regelen de rest",
+            "cta": { "text": "Volgende" }
+          }
+        },
+        "zp-live-onboarding": { "defaultValue": false },
+        "zc-header_cta": {
+          "defaultValue": {
+            "title": {
+              "white": "Spotgoedkoop thuisladen met",
+              "green": "de Charge 2"
+            },
+            "advantages": [
+              "In minder dan 3 jaar terugverdiend",
+              "Slim laden voor bijna niets",
+              "Gratis laden bij stroomoverschot"
+            ],
+            "cta": "Stel jouw laadpaal samen",
+            "appointmentPlannerCta": "Vraag advies aan"
+          }
+        },
+        "zc-start-configurator-checkout": {
+          "defaultValue": {
+            "title": "Zonneplan Charge",
+            "subtitle": "Installatie",
+            "form": { "title": "Start bestelling" },
+            "submitButtonMeta": "Kosteloos annuleren",
+            "submitButtonText": "Start bestelling",
+            "submitButtonColor": "primary"
+          }
+        },
+        "zc-start-configurator-page": {
+          "defaultValue": {
+            "sections": {
+              "productInfo": {
+                "title": "Slimste laadpaal van Nederland, inclusief installatie vanaf €1349",
+                "usps": [
+                  { "label": "Slim laden op de goedkoopste momenten" },
+                  { "label": "Incl. Dynamic Load Balancing" },
+                  { "label": "Geen abonnementskosten" }
+                ]
+              },
+              "cableLength": {
+                "title": "Kies laadpaal",
+                "subtitle": "Selecteer",
+                "kikiQuestion": "Wanneer moet ik 7,5 meter kiezen?"
+              },
+              "mountingType": {
+                "title": "Kies montage",
+                "subtitle": "Selecteer",
+                "kikiQuestion": "",
+                "advice": {
+                  "title": "Hulp nodig bij je keuze?",
+                  "cta": "Advies vragen"
+                }
+              },
+              "app": {
+                "title": "Slim laden functies",
+                "subtitle": "Standaard inbegrepen",
+                "kikiQuestion": "Welke voordelen biedt slim laden?"
+              },
+              "installation": {
+                "title": "Inclusief installatie",
+                "subtitle": "Standaard inbegrepen",
+                "kikiQuestion": "Wat valt er allemaal onder all-in installatie?",
+                "optionalUsps": [
+                  "Vooraf controle meterkast \u0026 locatie",
+                  "Veilige afzekering in meterkast",
+                  "Installatie binnen 1 - 4 weken"
+                ]
+              }
+            },
+            "submitText": "Naar productoverzicht",
+            "submitCopy": "Kosteloos annuleren",
+            "submitColor": "primary"
+          },
+          "rules": [
+            {
+              "coverage": 1,
+              "hashAttribute": "client_id",
+              "seed": "9f9eefc7-7f68-4c8d-a926-e062caa16ca4",
+              "hashVersion": 2,
+              "variations": [
+                {
+                  "sections": {
+                    "productInfo": {
+                      "title": "Slimste laadpaal van Nederland, inclusief installatie vanaf €1349",
+                      "usps": [
+                        { "label": "Slim laden op de goedkoopste momenten" },
+                        { "label": "Incl. Dynamic Load Balancing" },
+                        { "label": "Geen abonnementskosten" }
+                      ]
+                    },
+                    "cableLength": {
+                      "title": "Kies laadpaal",
+                      "subtitle": "Selecteer",
+                      "kikiQuestion": "Wanneer moet ik 7,5 meter kiezen?"
+                    },
+                    "mountingType": {
+                      "title": "Kies montage",
+                      "subtitle": "Selecteer",
+                      "kikiQuestion": "",
+                      "advice": {
+                        "title": "Hulp nodig bij je keuze?",
+                        "cta": "Advies vragen"
+                      }
+                    },
+                    "app": {
+                      "title": "Slim laden functies",
+                      "subtitle": "Standaard inbegrepen",
+                      "kikiQuestion": "Welke voordelen biedt slim laden?"
+                    },
+                    "installation": {
+                      "title": "Inclusief installatie",
+                      "subtitle": "Standaard inbegrepen",
+                      "kikiQuestion": "Wat valt er allemaal onder all-in installatie?",
+                      "optionalUsps": [
+                        "Vooraf controle meterkast \u0026 locatie",
+                        "Veilige afzekering in meterkast",
+                        "Installatie binnen 1 - 4 weken"
+                      ]
+                    }
+                  },
+                  "submitText": "Naar productoverzicht",
+                  "submitCopy": "Kosteloos annuleren",
+                  "submitColor": "primary"
+                },
+                {
+                  "sections": {
+                    "productInfo": {
+                      "title": "Slimste laadpaal van Nederland, inclusief installatie vanaf €1349",
+                      "usps": [
+                        { "label": "Slim laden op de goedkoopste momenten" },
+                        { "label": "Incl. Dynamic Load Balancing" },
+                        { "label": "Geen abonnementskosten" }
+                      ]
+                    },
+                    "cableLength": {
+                      "title": "Kies laadpaal",
+                      "subtitle": "Selecteer",
+                      "kikiQuestion": "Wanneer moet ik 7,5 meter kiezen?"
+                    },
+                    "mountingType": {
+                      "title": "Kies montage",
+                      "subtitle": "Selecteer",
+                      "kikiQuestion": "",
+                      "advice": {
+                        "title": "Hulp nodig bij je keuze?",
+                        "cta": "Advies vragen"
+                      }
+                    },
+                    "app": {
+                      "title": "Slim laden functies",
+                      "subtitle": "Standaard inbegrepen",
+                      "kikiQuestion": "Welke voordelen biedt slim laden?"
+                    },
+                    "installation": {
+                      "title": "Inclusief installatie",
+                      "subtitle": "Standaard inbegrepen",
+                      "kikiQuestion": "Wat valt er allemaal onder all-in installatie?",
+                      "optionalUsps": [
+                        "Vooraf controle meterkast \u0026 locatie",
+                        "Veilige afzekering in meterkast",
+                        "Installatie binnen 1 - 4 weken"
+                      ]
+                    }
+                  },
+                  "submitText": "Naar prijsoverzicht",
+                  "submitCopy": "Je kunt altijd nog kosteloos annuleren",
+                  "submitColor": "primary"
+                }
+              ],
+              "weights": [0.5, 0.5],
+              "key": "zc-start-configurator-page",
+              "phase": "0",
+              "meta": [{ "key": "0" }, { "key": "1" }]
+            }
+          ]
+        },
+        "zc-site-charge-page": {
+          "defaultValue": {
+            "hero": {
+              "title": {
+                "white": "Spotgoedkoop thuisladen met",
+                "green": "de Charge 2"
+              },
+              "advantages": [
+                "In minder dan 3 jaar terugverdiend",
+                "Slim laden voor bijna niets",
+                "Gratis laden bij stroomoverschot"
+              ],
+              "cta": "Stel jouw laadpaal samen",
+              "appointmentPlannerCta": "Vraag advies aan",
+              "microCopy": { "content": "", "url": "" }
+            }
+          }
+        },
+        "zhb-header": {
+          "defaultValue": {
+            "title": {
+              "white": "De thuisbatterij bespaart",
+              "green": "iedere. dag. weer."
+            },
+            "usp1": "Bespaar met je eigen zonnestroom",
+            "usp2": "Voorkom terugleverkosten",
+            "usp3": "Geschikt voor iedere woning",
+            "buttonText": "Stel zelf samen",
+            "notificationText": "Je hebt gisteren €20,41 bespaard",
+            "microCopy": { "content": "", "url": "" },
+            "appointmentPlannerCtaText": "Vraag advies aan"
+          }
+        },
+        "zhb-configurator-page": {
+          "defaultValue": {
+            "sections": {
+              "product": {
+                "title": "Slimste thuisbatterij van Nederland, inclusief installatie vanaf €3990",
+                "usps": [
+                  { "label": "Bespaar met je eigen zonnestroom" },
+                  { "label": "Voorkom terugleverkosten" },
+                  { "label": "Geschikt voor iedere woning" }
+                ]
+              },
+              "start": {
+                "title": "Kies jouw situatie",
+                "subtitle": "Selecteer"
+              },
+              "phaseSelection": {
+                "title": "Kies jouw huisaansluiting",
+                "subtitle": "Selecteer",
+                "kikiQuestion": "Hoe weet ik welke huisaansluiting ik heb?"
+              },
+              "powerPlay": {
+                "title": "Kies batterij aansturing",
+                "subtitle": "Selecteer",
+                "solarOption": {
+                  "title": "Alleen zonnestroom opslaan",
+                  "description": "Sla je zonnestroom op voor eigen gebruik en voorkom terugleverkosten. Deze aansturing wordt pas rendabel na het afschaffen van salderen.",
+                  "optionalUsps": [
+                    { "label": "Bespaar €100 - €200 per jaar" },
+                    { "label": "Werkt met elk energiecontract" },
+                    {
+                      "label": "Geen recht op btw-teruggave",
+                      "isNegative": true
+                    }
+                  ]
+                },
+                "powerplayOption": {
+                  "title": "Slim energiesysteem",
+                  "description": "Bespaar door je batterij in te zetten voor het energienet én door je eigen zonnestroom op te slaan voor later gebruik.",
+                  "optionalUsps": [
+                    { "label": "Bespaar €672 - €1657 per jaar" },
+                    { "label": "Btw-teruggave met 1 jaar Zonneplan Energie" },
+                    { "label": "Inclusief btw-teruggave service" }
+                  ],
+                  "kikiQuestion": "Leg het slimme energiesysteem aan mij uit"
+                }
+              },
+              "capacity": {
+                "title": "Kies opslagcapaciteit",
+                "subtitle": "Selecteer",
+                "optionalUsps": ["Bespaar €100 per jaar *"],
+                "advice": {
+                  "title": "Welke thuisbatterij is geschikt voor mij?",
+                  "cta": "Advies aanvragen"
+                },
+                "kikiQuestion": ""
+              },
+              "installation": {
+                "title": "Inclusief installatie",
+                "subtitle": "Standaard inbegrepen",
+                "description": "Je Nexus wordt door onze monteurs vakkundig bij jou thuis geplaatst. Voor installatie controleren wij de locatie en meterkast. Met een gemiddelde beoordeling van een 9.3 tonen klanten hun tevredenheid.",
+                "kikiQuestion": "Vertel mij wat een geschikte locatie is",
+                "usps": [
+                  { "label": "Vooraf controle meter \u0026 locatie *" },
+                  { "label": "Aansluiting op de meterkast" },
+                  { "label": "Installatie binnen 3-6 weken" }
+                ]
+              },
+              "monitoring": {
+                "title": "Ontvang updates",
+                "subtitle": "Standaard inbegrepen",
+                "description": "Jouw Nexus wordt voortdurend geüpdatet. Dit zorgt voor optimale prestaties en de batterij voldoet hiermee altijd aan de nieuwste regelgeving. De Zonneplan app geeft je realtime inzicht in de status van jouw Nexus."
+              }
+            },
+            "submitText": "Naar prijsoverzicht",
+            "submitCopy": "Kosteloos annuleren",
+            "submitColor": "primary"
+          },
+          "rules": [
+            {
+              "coverage": 1,
+              "hashAttribute": "client_id",
+              "seed": "e78f0767-bb86-4b7d-843e-8197d05de273",
+              "hashVersion": 2,
+              "variations": [
+                {
+                  "sections": {
+                    "product": {
+                      "title": "Slimste thuisbatterij van Nederland, inclusief installatie vanaf €3990",
+                      "usps": [
+                        { "label": "Bespaar met je eigen zonnestroom" },
+                        { "label": "Voorkom terugleverkosten" },
+                        { "label": "Geschikt voor iedere woning" }
+                      ]
+                    },
+                    "start": {
+                      "title": "Kies jouw situatie",
+                      "subtitle": "Selecteer"
+                    },
+                    "phaseSelection": {
+                      "title": "Kies jouw huisaansluiting",
+                      "subtitle": "Selecteer",
+                      "kikiQuestion": "Hoe weet ik welke huisaansluiting ik heb?"
+                    },
+                    "powerPlay": {
+                      "title": "Kies batterij aansturing",
+                      "subtitle": "Selecteer",
+                      "solarOption": {
+                        "title": "Alleen zonnestroom opslaan",
+                        "description": "Sla je zonnestroom op voor eigen gebruik en voorkom terugleverkosten. Deze aansturing wordt pas rendabel na het afschaffen van salderen.",
+                        "optionalUsps": [
+                          { "label": "Bespaar €100 - €200 per jaar" },
+                          { "label": "Werkt met elk energiecontract" },
+                          {
+                            "label": "Geen recht op btw-teruggave",
+                            "isNegative": true
+                          }
+                        ]
+                      },
+                      "powerplayOption": {
+                        "title": "Slim energiesysteem",
+                        "description": "Bespaar door je batterij in te zetten voor het energienet én door je eigen zonnestroom op te slaan voor later gebruik.",
+                        "optionalUsps": [
+                          { "label": "Bespaar €672 - €1657 per jaar" },
+                          {
+                            "label": "Btw-teruggave met 1 jaar Zonneplan Energie"
+                          },
+                          { "label": "Inclusief btw-teruggave service" }
+                        ],
+                        "kikiQuestion": "Leg het slimme energiesysteem aan mij uit"
+                      }
+                    },
+                    "capacity": {
+                      "title": "Kies opslagcapaciteit",
+                      "subtitle": "Selecteer",
+                      "optionalUsps": ["Bespaar €100 per jaar *"],
+                      "advice": {
+                        "title": "Welke thuisbatterij is geschikt voor mij?",
+                        "cta": "Advies aanvragen"
+                      },
+                      "kikiQuestion": ""
+                    },
+                    "installation": {
+                      "title": "Inclusief installatie",
+                      "subtitle": "Standaard inbegrepen",
+                      "description": "Je Nexus wordt door onze monteurs vakkundig bij jou thuis geplaatst. Voor installatie controleren wij de locatie en meterkast. Met een gemiddelde beoordeling van een 9.3 tonen klanten hun tevredenheid.",
+                      "kikiQuestion": "Vertel mij wat een geschikte locatie is",
+                      "usps": [
+                        { "label": "Vooraf controle meter \u0026 locatie *" },
+                        { "label": "Aansluiting op de meterkast" },
+                        { "label": "Installatie binnen 3-6 weken" }
+                      ]
+                    },
+                    "monitoring": {
+                      "title": "Ontvang updates",
+                      "subtitle": "Standaard inbegrepen",
+                      "description": "Jouw Nexus wordt voortdurend geüpdatet. Dit zorgt voor optimale prestaties en de batterij voldoet hiermee altijd aan de nieuwste regelgeving. De Zonneplan app geeft je realtime inzicht in de status van jouw Nexus."
+                    }
+                  },
+                  "submitText": "Naar prijsoverzicht",
+                  "submitCopy": "Kosteloos annuleren",
+                  "submitColor": "primary"
+                },
+                {
+                  "sections": {
+                    "product": {
+                      "title": "Slimste thuisbatterij van Nederland, inclusief installatie vanaf €3990",
+                      "usps": [
+                        { "label": "Bespaar met je eigen zonnestroom" },
+                        { "label": "Voorkom terugleverkosten" },
+                        { "label": "Geschikt voor iedere woning" }
+                      ]
+                    },
+                    "start": {
+                      "title": "Kies jouw situatie",
+                      "subtitle": "Selecteer"
+                    },
+                    "phaseSelection": {
+                      "title": "Kies jouw huisaansluiting",
+                      "subtitle": "Selecteer",
+                      "kikiQuestion": "Hoe weet ik welke huisaansluiting ik heb?"
+                    },
+                    "powerPlay": {
+                      "title": "Kies batterij aansturing",
+                      "subtitle": "Selecteer",
+                      "solarOption": {
+                        "title": "Alleen zonnestroom opslaan",
+                        "description": "Sla je zonnestroom op voor eigen gebruik en voorkom terugleverkosten. Deze aansturing wordt pas rendabel na het afschaffen van salderen.",
+                        "optionalUsps": [
+                          { "label": "Bespaar €100 - €200 per jaar" },
+                          { "label": "Werkt met elk energiecontract" },
+                          {
+                            "label": "Geen recht op btw-teruggave",
+                            "isNegative": true
+                          }
+                        ]
+                      },
+                      "powerplayOption": {
+                        "title": "Slim energiesysteem",
+                        "description": "Bespaar door je batterij in te zetten voor het energienet én door je eigen zonnestroom op te slaan voor later gebruik.",
+                        "optionalUsps": [
+                          { "label": "Bespaar €672 - €1657 per jaar" },
+                          {
+                            "label": "Btw-teruggave met 1 jaar Zonneplan Energie"
+                          },
+                          { "label": "Inclusief btw-teruggave service" }
+                        ],
+                        "kikiQuestion": "Leg het slimme energiesysteem aan mij uit"
+                      }
+                    },
+                    "capacity": {
+                      "title": "Kies opslagcapaciteit",
+                      "subtitle": "Selecteer",
+                      "optionalUsps": ["Bespaar €100 per jaar *"],
+                      "advice": {
+                        "title": "Benieuwd hoeveel een thuisbatterij jou oplevert?",
+                        "cta": "Vraag advies aan"
+                      },
+                      "kikiQuestion": ""
+                    },
+                    "installation": {
+                      "title": "Inclusief installatie",
+                      "subtitle": "Standaard inbegrepen",
+                      "description": "Je Nexus wordt door onze monteurs vakkundig bij jou thuis geplaatst. Voor installatie controleren wij de locatie en meterkast. Met een gemiddelde beoordeling van een 9.3 tonen klanten hun tevredenheid.",
+                      "kikiQuestion": "Vertel mij wat een geschikte locatie is",
+                      "usps": [
+                        { "label": "Vooraf controle meter \u0026 locatie *" },
+                        { "label": "Aansluiting op de meterkast" },
+                        { "label": "Installatie binnen 3-6 weken" }
+                      ]
+                    },
+                    "monitoring": {
+                      "title": "Ontvang updates",
+                      "subtitle": "Standaard inbegrepen",
+                      "description": "Jouw Nexus wordt voortdurend geüpdatet. Dit zorgt voor optimale prestaties en de batterij voldoet hiermee altijd aan de nieuwste regelgeving. De Zonneplan app geeft je realtime inzicht in de status van jouw Nexus."
+                    }
+                  },
+                  "submitText": "Naar prijsoverzicht",
+                  "submitCopy": "Kosteloos annuleren",
+                  "submitColor": "primary"
+                }
+              ],
+              "weights": [0.5, 0.5],
+              "key": "zhb-configurator-page",
+              "phase": "0",
+              "meta": [{ "key": "0" }, { "key": "1" }]
+            }
+          ]
+        },
+        "zhb-site-thuisbatterij-demo-block": {
+          "defaultValue": {
+            "activity": {
+              "title": "Batterij activiteit",
+              "subtitle": "Zonneplan Nexus (20kWh) in Zwolle"
+            },
+            "cta": {
+              "text": "Ontdek de thuisbatterij",
+              "buttonVariant": "cta",
+              "microCopy": ""
+            }
+          }
+        },
+        "zhb-start-configurator-checkout": {
+          "defaultValue": {
+            "title": "Zonneplan Nexus",
+            "subtitle": "Installatie",
+            "form": {
+              "title": "Start bestelling",
+              "subtitle": "Installatie juni - juli 2025"
+            },
+            "submitButtonMeta": "Je kunt later altijd nog kosteloos annuleren",
+            "submitButtonText": "Start bestelling",
+            "submitButtonColor": "primary"
+          }
+        },
+        "fixed-advanced-deposit-enabled": { "defaultValue": true },
+        "christmas-theme-enabled": {
+          "defaultValue": false,
+          "rules": [{ "force": true }]
+        },
+        "promotion": { "defaultValue": false, "rules": [{ "force": true }] }
+      }
+    },
+    "previewModeEnabled": false,
+    "spotCookies": {},
+    "__N_SSG": true
+  },
+  "page": "/[...slug]",
+  "query": { "slug": ["energie", "dynamische-energieprijzen"] },
+  "buildId": "e5cOmJiMyy68m9Mdf0ZNo",
+  "isFallback": false,
+  "dynamicIds": [24439, 37963, 21163],
+  "gsp": true,
+  "appGip": true,
+  "scriptLoader": []
+}

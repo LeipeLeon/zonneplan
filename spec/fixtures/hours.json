@@ -1,0 +1,352 @@
+[
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T21:00:00.000000Z",
+    "priceTotalTaxIncluded": 2636093,
+    "marketPrice": 997900,
+    "priceInclHandlingVat": 1407459,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "normal"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T20:00:00.000000Z",
+    "priceTotalTaxIncluded": 3071330,
+    "marketPrice": 1357600,
+    "priceInclHandlingVat": 1842696,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "normal"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T19:00:00.000000Z",
+    "priceTotalTaxIncluded": 3756311,
+    "marketPrice": 1923700,
+    "priceInclHandlingVat": 2527677,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "high"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T18:00:00.000000Z",
+    "priceTotalTaxIncluded": 3756069,
+    "marketPrice": 1923500,
+    "priceInclHandlingVat": 2527435,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "high"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T17:00:00.000000Z",
+    "priceTotalTaxIncluded": 3018695,
+    "marketPrice": 1314100,
+    "priceInclHandlingVat": 1790061,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "normal"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T16:00:00.000000Z",
+    "priceTotalTaxIncluded": 2503719,
+    "marketPrice": 888500,
+    "priceInclHandlingVat": 1275085,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "normal"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T15:00:00.000000Z",
+    "priceTotalTaxIncluded": 1870284,
+    "marketPrice": 365000,
+    "priceInclHandlingVat": 641650,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "low"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T14:00:00.000000Z",
+    "priceTotalTaxIncluded": 1428029,
+    "marketPrice": -500,
+    "priceInclHandlingVat": 199395,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "low"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T13:00:00.000000Z",
+    "priceTotalTaxIncluded": 1392334,
+    "marketPrice": -30000,
+    "priceInclHandlingVat": 163700,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "low"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T12:00:00.000000Z",
+    "priceTotalTaxIncluded": 1334859,
+    "marketPrice": -77500,
+    "priceInclHandlingVat": 106225,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "low"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T11:00:00.000000Z",
+    "priceTotalTaxIncluded": 1269277,
+    "marketPrice": -131700,
+    "priceInclHandlingVat": 40643,
+    "priceEnergyTaxes": 12.28634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "low"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T10:00:00.000000Z",
+    "priceTotalTaxIncluded": 1391488,
+    "marketPrice": -30699,
+    "priceInclHandlingVat": 162854,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "low"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T09:00:00.000000Z",
+    "priceTotalTaxIncluded": 1416534,
+    "marketPrice": -10000,
+    "priceInclHandlingVat": 187900,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "low"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T08:00:00.000000Z",
+    "priceTotalTaxIncluded": 1428392,
+    "marketPrice": -200,
+    "priceInclHandlingVat": 199758,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "low"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T07:00:00.000000Z",
+    "priceTotalTaxIncluded": 1440734,
+    "marketPrice": 10000,
+    "priceInclHandlingVat": 212100,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "low"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T06:00:00.000000Z",
+    "priceTotalTaxIncluded": 2079735,
+    "marketPrice": 538100,
+    "priceInclHandlingVat": 851101,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "low"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T05:00:00.000000Z",
+    "priceTotalTaxIncluded": 2466814,
+    "marketPrice": 858000,
+    "priceInclHandlingVat": 1238180,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "normal"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T04:00:00.000000Z",
+    "priceTotalTaxIncluded": 2575593,
+    "marketPrice": 947900,
+    "priceInclHandlingVat": 1346959,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "normal"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T03:00:00.000000Z",
+    "priceTotalTaxIncluded": 2548852,
+    "marketPrice": 925800,
+    "priceInclHandlingVat": 1320218,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "normal"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T02:00:00.000000Z",
+    "priceTotalTaxIncluded": 2567605,
+    "marketPrice": 941299,
+    "priceInclHandlingVat": 1338971,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "normal"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T01:00:00.000000Z",
+    "priceTotalTaxIncluded": 2561555,
+    "marketPrice": 936299,
+    "priceInclHandlingVat": 1332921,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "normal"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-31T00:00:00.000000Z",
+    "priceTotalTaxIncluded": 2575835,
+    "marketPrice": 948100,
+    "priceInclHandlingVat": 1347201,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "normal"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-30T23:00:00.000000Z",
+    "priceTotalTaxIncluded": 2610804,
+    "marketPrice": 977000,
+    "priceInclHandlingVat": 1382170,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "normal"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-30T22:00:00.000000Z",
+    "priceTotalTaxIncluded": 2723334,
+    "marketPrice": 1070000,
+    "priceInclHandlingVat": 1494700,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "normal"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-30T21:00:00.000000Z",
+    "priceTotalTaxIncluded": 2737249,
+    "marketPrice": 1081500,
+    "priceInclHandlingVat": 1508615,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "normal"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-30T20:00:00.000000Z",
+    "priceTotalTaxIncluded": 3003933,
+    "marketPrice": 1301900,
+    "priceInclHandlingVat": 1775299,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "normal"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-30T19:00:00.000000Z",
+    "priceTotalTaxIncluded": 3245812,
+    "marketPrice": 1501800,
+    "priceInclHandlingVat": 2017178,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "high"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-30T18:00:00.000000Z",
+    "priceTotalTaxIncluded": 3065401,
+    "marketPrice": 1352700,
+    "priceInclHandlingVat": 1836767,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "normal"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-30T17:00:00.000000Z",
+    "priceTotalTaxIncluded": 2759634,
+    "marketPrice": 1100000,
+    "priceInclHandlingVat": 1531000,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "normal"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-30T16:00:00.000000Z",
+    "priceTotalTaxIncluded": 2276118,
+    "marketPrice": 700400,
+    "priceInclHandlingVat": 1047484,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "low"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-30T15:00:00.000000Z",
+    "priceTotalTaxIncluded": 1513334,
+    "marketPrice": 70000,
+    "priceInclHandlingVat": 284700,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "low"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-30T14:00:00.000000Z",
+    "priceTotalTaxIncluded": 1428271,
+    "marketPrice": -300,
+    "priceInclHandlingVat": 199637,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "low"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-30T13:00:00.000000Z",
+    "priceTotalTaxIncluded": 1407822,
+    "marketPrice": -17200,
+    "priceInclHandlingVat": 179188,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "low"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-30T12:00:00.000000Z",
+    "priceTotalTaxIncluded": 1390035,
+    "marketPrice": -31900,
+    "priceInclHandlingVat": 161401,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "low"
+  },
+  {
+    "__typename": "ElectricityHour",
+    "dateTime": "2025-05-30T11:00:00.000000Z",
+    "priceTotalTaxIncluded": 1394512,
+    "marketPrice": -28200,
+    "priceInclHandlingVat": 165878,
+    "priceEnergyTaxes": 1228634,
+    "priceCbsAverage": 0.4,
+    "pricingProfile": "low"
+  }
+]
