@@ -1,37 +1,83 @@
 require 'open-uri'
 require 'nokogiri'
 require 'json'
-require 'date'
+require 'time'
 
 url = 'https://www.zonneplan.nl/energie/dynamische-energieprijzen'
 dat_file = 'build/hours.dat'
 html = URI.open(url).read
 doc = Nokogiri::HTML(html)
 
+ENV['TZ'] = 'Europe/Amsterdam'
+
+def generate_data_file(hours, dat_file)
+  File.open(dat_file, 'w') do |f|
+    hours.reverse!
+    colors = {
+      "normal" => "0xCCCCCC",
+      "high" => "0x666666",
+      "low" => "0x000000"
+    }
+
+    hours.each do |item|
+      day_hour = Time.parse(item['dateTime']).localtime.strftime('%H')
+      price = item['priceTotalTaxIncluded'].to_f / 100000
+      color = colors[item['pricingProfile']]
+      f.puts "#{day_hour} #{price} #{color}"
+    end
+
+    puts "Data successfully written to #{dat_file}."
+  end
+end
+
+def execute_gnuplot(dat_file, title)
+  gnuplot_script = <<~SCRIPT
+    set terminal pngcairo size 800,600 enhanced font 'Verdana,10'
+    # set title 'Zonneplan Dynamische Energieprijzen'
+    # set xlabel 'Hour of the Day'
+    # set ylabel 'Price (EUR/kWh)'
+    # set grid
+    # set style fill solid 0.5
+    set term pngcairo size 800,460 enhanced font 'Verdana,10'
+    set output "build/out.png"
+
+    set key autotitle columnhead
+    unset key
+
+    set title "#{title}"
+    set xlabel "Hour of the Day"
+    set ylabel "Price (EUR/kWh)"
+
+    set nokey
+    set border 1+2
+    set boxwidth 0.8
+    set style fill solid
+    set xtics font ",10"
+
+    set xtics nomirror
+    set ytics nomirror
+
+    # set yrange [0:7]
+    set grid y
+    # set ylabel "Price €"
+
+    plot '#{dat_file}' using 0:2:3:xtic(1) with boxes lc rgb var
+
+  SCRIPT
+
+  File.write('build/plot.gp', gnuplot_script)
+
+  system('gnuplot build/plot.gp')
+  puts "Plot generated as build/hours.png."
+end
+
 if (next_data_json = doc.at_css('script#__NEXT_DATA__'))
   data = JSON.parse(next_data_json.text)
 
   if (hours = data.dig('props', 'pageProps', 'data', 'templateProps', 'energyData', 'electricity', 'hours'))
-    File.open(dat_file, 'w') do |f|
-      f.puts "Zonneplan #{DateTime.parse(hours[0]['dateTime']).strftime('%d-%m-%Y')}"
-
-      hours.reverse!
-      colors = {
-        "normal" => "0xCCCCCC",
-        "high" => "0x666666",
-        "low" => "0x000000"
-      }
-
-      hours.each do |item|
-        d_t = DateTime.parse(item['dateTime'])
-        day_hour = d_t.hour
-        price = item['priceTotalTaxIncluded'].to_f / 100000
-        color = colors[item['pricingProfile']]
-        f.puts "#{day_hour} #{price} #{color}"
-      end
-
-      puts "Data successfully written to #{dat_file}."
-    end
+    generate_data_file(hours, dat_file)
+    title = "Zonneplan #{DateTime.parse(hours[0]['dateTime']).strftime('%d-%m-%Y')}"
+    execute_gnuplot(dat_file, title)
   else
     throw "No electricity hours data found in __NEXT_DATA__."
   end
