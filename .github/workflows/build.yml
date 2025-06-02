@@ -22,10 +22,15 @@ jobs:
       - name: Install Imagemagick
         uses: mfinelli/setup-imagemagick@v6
 
-      - name: make a acreenshot and convert
-        id: enhance_check
-        run: ./script/get_screenshot
-        shell: bash
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+      - name: Install gnuplot
+        run: sudo apt install -y gnuplot
+
+      - name: Make a graph and convert
+        run: ./script/build
 
       - name: Convert Markdown to HTML
         uses: natescherer/markdown-to-html-with-github-style-action@v1.1.0
