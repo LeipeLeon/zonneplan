@@ -1,4 +1,16 @@
 #!/usr/bin/env ruby
+
+require 'bundler/inline'
+
+gemfile do
+  source 'https://rubygems.org'
+
+  gem 'open-uri'
+  gem 'json'
+  gem 'time'
+  gem 'nokogiri'
+end
+
 require 'open-uri'
 require 'nokogiri'
 require 'json'
