@@ -18,6 +18,11 @@ jobs:
         with:
           fetch-depth: 0 # Number of commits to fetch. 0 indicates all history for all branches and tags.
           token: ${{ secrets.GITHUB_TOKEN }}
+        # See: https://askubuntu.com/questions/272248/processing-triggers-for-man-db
+      - name: disable man-db
+        run: sudo apt-get remove --purge man-db
+      - name: Install gnuplot
+        run: sudo apt install -y gnuplot
 
       - name: Install Imagemagick
         uses: mfinelli/setup-imagemagick@v6
@@ -27,8 +32,6 @@ jobs:
         with:
           ruby-version: '3.3'
           bundler-cache: true
-      - name: Install gnuplot
-        run: sudo apt install -y gnuplot
 
       - name: Make a graph and convert
         run: ./script/build
