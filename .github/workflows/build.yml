@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - "*"
   schedule:
     - cron: '15 * * * *'
 
@@ -66,6 +66,7 @@ jobs:
           git push origin main
   # Deploy job
   deploy:
+    if: github.ref == 'refs/heads/main'
     # Add a dependency to the build job
     needs: build
 
