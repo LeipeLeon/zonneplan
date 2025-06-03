@@ -40,11 +40,11 @@ def generate_data_file(hours, dat_file)
 
   File.open(dat_file, 'w') do |f|
     now = Time.now.localtime
-    filtered_set = hours.reverse.reject { (Time.parse(_1['dateTime']).localtime - now) < -3600 * 4 } # skip prices older than 4 hours
-    prices = filtered_set.map { _1['priceTotalTaxIncluded']}
+    graph_hours = hours.reverse.reject { (Time.parse(_1['dateTime']).localtime - now) < -3600 * 4 } # skip prices older than 4 hours
+    prices = graph_hours.map { _1['priceTotalTaxIncluded']}
     min_price = (prices.min.to_f / 100000).round(1)
     max_price = (prices.max.to_f / 100000).round(1)
-    filtered_set.each do |item|
+    graph_hours.each do |item|
       price_date = Time.parse(item['dateTime']).localtime
       day_hour = price_date.strftime('%H')
       price = (item['priceTotalTaxIncluded'].to_f / 100000).round(1)
