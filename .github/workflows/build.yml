@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - "*"
   schedule:
     - cron: '15 * * * *'
 
@@ -18,14 +18,23 @@ jobs:
         with:
           fetch-depth: 0 # Number of commits to fetch. 0 indicates all history for all branches and tags.
           token: ${{ secrets.GITHUB_TOKEN }}
+        # See: https://askubuntu.com/questions/272248/processing-triggers-for-man-db
+      - name: disable man-db
+        run: sudo apt-get remove --purge man-db
+      - name: Install gnuplot
+        run: sudo apt install -y gnuplot
 
       - name: Install Imagemagick
         uses: mfinelli/setup-imagemagick@v6
 
-      - name: make a acreenshot and convert
-        id: enhance_check
-        run: ./script/get_screenshot
-        shell: bash
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - name: Make a graph and convert
+        run: ./script/build
 
       - name: Convert Markdown to HTML
         uses: natescherer/markdown-to-html-with-github-style-action@v1.1.0
@@ -48,7 +57,7 @@ jobs:
           mv build/dithered.png history/${timestamp}-dithered.png
           mv build/diffused.png history/${timestamp}-diffused.png
           mv build/diffused.bmp history/${timestamp}-diffused.bmp
-          mv build/cropped-0.png history/${timestamp}-color.png
+          mv build/hours.png history/${timestamp}-color.png
 
       - name: Commit and push changes
         run: |-
@@ -57,9 +66,10 @@ jobs:
           git add history/$(date +%Y/%m)
           timestamp=$(date -u)
           git commit -m "Latest data: ${timestamp}" || exit 0
-          git push origin main
+          git push origin ${{ github.ref }}
   # Deploy job
   deploy:
+    if: ${{ github.ref == 'refs/heads/main' }}
     # Add a dependency to the build job
     needs: build
 

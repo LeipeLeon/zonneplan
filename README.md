@@ -20,3 +20,45 @@ This image can be used with the [Image display](https://usetrmnl.com/plugin_sett
 - https://help.usetrmnl.com/en/articles/11479051-image-display
 - https://docs.usetrmnl.com/go/imagemagick-guide
 - https://usage.imagemagick.org/crop/#crop
+
+
+## Scrape site
+
+Content is in `<script id="__NEXT_DATA__" type="application/json">`
+-> "props.pageProps.data.templateProps.energyData.electricity.hours[]"
+
+divide element values by 100000
+
+```json
+{
+  "props": {
+    "pageProps": {
+      "data": {
+        "templateProps" : {
+          "energyData": {
+            "__typename": "EnergyData",
+            "electricity": {
+              "__typename": "Electricity",
+              "hours": [
+                {
+                  "__typename": "ElectricityHour",
+                  "dateTime": "2025-05-31T21:00:00.000000Z",
+                  "priceTotalTaxIncluded": 2636093,
+                  "marketPrice": 997900,
+                  "priceInclHandlingVat": 1407459,
+                  "priceEnergyTaxes": 1228634,
+                  "priceCbsAverage": 0.4,
+                  "pricingProfile": "normal"
+                },
+                {
+                  // ....
+                }
+              ]
+            }
+          },
+        }
+      }
+    }
+  }
+}
+```
