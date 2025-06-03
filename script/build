@@ -38,6 +38,7 @@ def generate_data_file(hours, dat_file)
     now = Time.now.localtime
     hours.reverse.each do |item|
       price_date = Time.parse(item['dateTime']).localtime
+      next if (price_date - now) < -3600 * 4 # skip prices older than 4 hours
       day_hour = price_date.strftime('%H')
       price = item['priceTotalTaxIncluded'].to_f / 100000
       color = now > price_date ? colors['stale'] : colors[item['pricingProfile']]
