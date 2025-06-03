@@ -91,8 +91,8 @@ if (next_data_json = doc.at_css('script#__NEXT_DATA__'))
   data = JSON.parse(next_data_json.text)
 
   if (hours = data.dig('props', 'pageProps', 'data', 'templateProps', 'energyData', 'electricity', 'hours'))
-    generate_data_file(hours, dat_file)
     title = "Zonneplan #{DateTime.parse(hours[0]['dateTime']).strftime('%d-%m-%Y')}"
+    generate_data_file(hours, dat_file)
     execute_gnuplot(dat_file, bitmap_file, title)
     system("magick #{bitmap_file} -dither FloydSteinberg -define dither:diffusion-amount=50% -ordered-dither h4x4a build/dithered.png")
     system("magick build/dithered.png -monochrome -colors 2 -depth 1 -strip png:build/diffused.png")
