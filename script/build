@@ -19,7 +19,11 @@ require 'time'
 url = 'https://www.zonneplan.nl/energie/dynamische-energieprijzen'
 dat_file = 'build/hours.dat'
 bitmap_file = 'build/hours.png'
-html = URI.open(url).read
+url_options = {
+  "User-Agent" => "Ruby/#{RUBY_VERSION}; Leon Berenschot; https://github.com/LeipeLeon/zonneplan"
+}
+
+html = URI.open(url, url_options).read
 doc = Nokogiri::HTML(html)
 
 ENV['TZ'] = 'Europe/Amsterdam'
