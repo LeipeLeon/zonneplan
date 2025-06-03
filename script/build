@@ -48,8 +48,8 @@ def generate_data_file(hours, dat_file)
       price_date = Time.parse(item['dateTime']).localtime
       day_hour = price_date.strftime('%H')
       price = (item['priceTotalTaxIncluded'].to_f / 100000).round(1)
-      color = now > price_date ? colors['stale'] : colors[item['pricingProfile']]
-      boudary_price = price if (min_price == price || max_price == price)
+      color = now - 3600 > price_date ? colors['stale'] : colors[item['pricingProfile']]
+      boudary_price = price if (min_price == price || max_price == price) if (price_date - now ) > -3600
       f.puts "#{day_hour} #{price} #{color} #{boudary_price}"
     end
 
