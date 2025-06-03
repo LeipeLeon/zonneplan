@@ -7,7 +7,7 @@ This image can be used with the [Image display](https://usetrmnl.com/plugin_sett
 - dithered png: <https://leipeleon.github.io/zonneplan/dithered.png>
 - diffused png: <https://leipeleon.github.io/zonneplan/diffused.png>
 - diffused bmp: <https://leipeleon.github.io/zonneplan/diffused.bmp>
-- color: <https://leipeleon.github.io/zonneplan/resized.png>
+- color: <https://leipeleon.github.io/zonneplan/hours.png>
 
 1. Make a screenshot of https://www.zonneplan.nl/energie/dynamische-energieprijzen
 2. crop out the graphic w/ imagemagick
