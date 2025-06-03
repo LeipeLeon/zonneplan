@@ -28,14 +28,13 @@ Dir.mkdir('build') unless Dir.exist?('build')
 
 def generate_data_file(hours, dat_file)
   File.open(dat_file, 'w') do |f|
-    hours.reverse!
     colors = {
       "low" => "0xCCCCCC",
       "normal" => "0x666666",
       "high" => "0x000000",
     }
 
-    hours.each do |item|
+    hours.reverse.each do |item|
       day_hour = Time.parse(item['dateTime']).localtime.strftime('%H')
       price = item['priceTotalTaxIncluded'].to_f / 100000
       color = colors[item['pricingProfile']]
