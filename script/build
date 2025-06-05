@@ -61,19 +61,14 @@ end
 
 def execute_gnuplot(dat_file, bitmap_file, title)
   gnuplot_script = <<~SCRIPT
-    set terminal pngcairo size 800,600 enhanced font 'Verdana,10'
-    # set title 'Zonneplan Dynamische Energieprijzen'
-    # set xlabel 'Hour of the Day'
-    # set ylabel 'Price (EUR/kWh)'
-    # set grid
-    # set style fill solid 0.5
-    set term pngcairo size 800,460 enhanced font 'Verdana,10'
+    set term png large size 800,460
     set output "#{bitmap_file}"
     set mono
 
     set key autotitle columnhead
     unset key
 
+    set title font "Verdana,16"
     set title "#{title}"
     set xlabel "Hour of the Day"
     set ylabel "Price (EUR/kWh)"
