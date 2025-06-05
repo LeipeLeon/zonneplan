@@ -61,7 +61,7 @@ end
 
 def execute_gnuplot(dat_file, bitmap_file, title)
   gnuplot_script = <<~SCRIPT
-    set term png large size 800,460
+    set term png large size 800,480
     set output "#{bitmap_file}"
     set mono
 
