@@ -53,10 +53,10 @@ def generate_data_file(hours, dat_file)
     graph_hours.each do |item|
       price_date = Time.parse(item["dateTime"]).localtime
       day_hour = price_date.strftime("%H")
-      price = (item["priceTotalTaxIncluded"].to_f / 100000).round(0)
+      price = (item["priceTotalTaxIncluded"].to_f / 100000).round(1)
       color = (now - 3600 > price_date) ? colors["stale"] : colors[item["pricingProfile"]]
       if (price_date - now) > -3600
-        boudary_price = price if min_price == price || max_price == price
+        boudary_price = price if min_price == price.round(0) || max_price == price.round(0)
       end
       f.puts "#{day_hour} #{price} #{color} #{boudary_price}"
     end
