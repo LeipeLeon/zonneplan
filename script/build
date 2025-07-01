@@ -1,24 +1,24 @@
 #!/usr/bin/env ruby
 # brew install gnuplot imagemagick
-require 'bundler/inline'
+require "bundler/inline"
 
 gemfile do
-  source 'https://rubygems.org'
+  source "https://rubygems.org"
 
-  gem 'open-uri'
-  gem 'json'
-  gem 'time'
-  gem 'nokogiri'
+  gem "open-uri"
+  gem "json"
+  gem "time"
+  gem "nokogiri"
 end
 
-require 'open-uri'
-require 'nokogiri'
-require 'json'
-require 'time'
+require "open-uri"
+require "nokogiri"
+require "json"
+require "time"
 
-url = 'https://www.zonneplan.nl/energie/dynamische-energieprijzen'
-dat_file = 'build/hours.dat'
-bitmap_file = 'build/hours.png'
+url = "https://www.zonneplan.nl/energie/dynamische-energieprijzen"
+dat_file = "build/hours.dat"
+bitmap_file = "build/hours.png"
 url_options = {
   "User-Agent" => "Ruby/#{RUBY_VERSION}; Leon Berenschot; https://github.com/LeipeLeon/zonneplan"
 }
@@ -26,9 +26,9 @@ url_options = {
 html = URI.open(url, url_options).read
 doc = Nokogiri::HTML(html)
 
-ENV['TZ'] = 'Europe/Amsterdam'
+ENV["TZ"] = "Europe/Amsterdam"
 
-Dir.mkdir('build') unless Dir.exist?('build')
+Dir.mkdir("build") unless Dir.exist?("build")
 
 def do_cli_command(command)
   system(command, exception: true)
@@ -39,23 +39,25 @@ def generate_data_file(hours, dat_file)
     "stale" => "0xCCCCCC",
     "low" => "0x999999",
     "normal" => "0x666666",
-    "high" => "0x000000",
+    "high" => "0x000000"
   }
 
-  File.open(dat_file, 'w') do |f|
+  File.open(dat_file, "w") do |f|
     now = Time.now.localtime
-    upcoming_hours = hours.reverse.reject { (Time.parse(_1['dateTime']).localtime - now) < -3600 } # skip prices older than 1 hour
-    prices = upcoming_hours.map { _1['priceTotalTaxIncluded']}
+    upcoming_hours = hours.reverse.reject { (Time.parse(_1["dateTime"]).localtime - now) < -3600 } # skip prices older than 1 hour
+    prices = upcoming_hours.map { _1["priceTotalTaxIncluded"] }
     min_price = (prices.min.to_f / 100000).round(0)
     max_price = (prices.max.to_f / 100000).round(0)
 
-    graph_hours = hours.reverse.reject { (Time.parse(_1['dateTime']).localtime - now) < -3600 * 4 } # skip prices older than 4 hours
+    graph_hours = hours.reverse.reject { (Time.parse(_1["dateTime"]).localtime - now) < -3600 * 4 } # skip prices older than 4 hours
     graph_hours.each do |item|
-      price_date = Time.parse(item['dateTime']).localtime
-      day_hour = price_date.strftime('%H')
-      price = (item['priceTotalTaxIncluded'].to_f / 100000).round(0)
-      color = now - 3600 > price_date ? colors['stale'] : colors[item['pricingProfile']]
-      boudary_price = price if (min_price == price || max_price == price) if (price_date - now ) > -3600
+      price_date = Time.parse(item["dateTime"]).localtime
+      day_hour = price_date.strftime("%H")
+      price = (item["priceTotalTaxIncluded"].to_f / 100000).round(0)
+      color = (now - 3600 > price_date) ? colors["stale"] : colors[item["pricingProfile"]]
+      if (price_date - now) > -3600
+        boudary_price = price if min_price == price || max_price == price
+      end
       f.puts "#{day_hour} #{price} #{color} #{boudary_price}"
     end
 
@@ -94,16 +96,16 @@ def execute_gnuplot(dat_file, bitmap_file, title)
 
   SCRIPT
 
-  File.write('build/plot.gp', gnuplot_script)
+  File.write("build/plot.gp", gnuplot_script)
 
-  do_cli_command('gnuplot build/plot.gp')
+  do_cli_command("gnuplot build/plot.gp")
   puts "Plot generated as build/hours.png."
 end
 
-if (next_data_json = doc.at_css('script#__NEXT_DATA__'))
+if (next_data_json = doc.at_css("script#__NEXT_DATA__"))
   data = JSON.parse(next_data_json.text)
 
-  if (hours = data.dig('props', 'pageProps', 'data', 'templateProps', 'energyData', 'electricity', 'hours'))
+  if (hours = data.dig("props", "pageProps", "data", "templateProps", "energyData", "electricity", "hours"))
     # title = "Zonneplan #{DateTime.parse(hours[0]['dateTime']).strftime('%d-%m-%Y')} #{Time.now.localtime.strftime("%H:%M")}"
     title = "Zonneplan #{Time.now.localtime.strftime("%d-%m-%Y %H:%M")}"
     generate_data_file(hours, dat_file)
