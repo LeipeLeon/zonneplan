@@ -21,6 +21,8 @@ jobs:
         # See: https://askubuntu.com/questions/272248/processing-triggers-for-man-db
       - name: disable man-db
         run: sudo apt-get remove --purge man-db
+      - name: apt-get update
+        run: sudo apt-get update
       - name: Install gnuplot
         run: sudo apt install -y gnuplot
 
