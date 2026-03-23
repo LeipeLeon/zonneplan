@@ -16,22 +16,90 @@ require "nokogiri"
 require "json"
 require "time"
 
-url = "https://www.zonneplan.nl/energie/dynamische-energieprijzen"
+ENV["TZ"] = "Europe/Amsterdam"
+
 dat_file = "build/hours.dat"
 bitmap_file = "build/hours.png"
-url_options = {
-  "User-Agent" => "Ruby/#{RUBY_VERSION}; Leon Berenschot; https://github.com/LeipeLeon/zonneplan"
-}
-
-html = URI.open(url, url_options).read
-doc = Nokogiri::HTML(html)
-
-ENV["TZ"] = "Europe/Amsterdam"
+user_agent = "Ruby/#{RUBY_VERSION}; Leon Berenschot; https://github.com/LeipeLeon/zonneplan"
 
 Dir.mkdir("build") unless Dir.exist?("build")
 
 def do_cli_command(command)
   system(command, exception: true)
+end
+
+def classify_pricing_profile(price, all_prices)
+  sorted = all_prices.sort
+  q1 = sorted[(sorted.length * 0.25).floor]
+  q3 = sorted[(sorted.length * 0.75).floor]
+
+  if price <= q1
+    "low"
+  elsif price >= q3
+    "high"
+  else
+    "normal"
+  end
+end
+
+def fetch_from_zonneplan(user_agent)
+  url = "https://www.zonneplan.nl/energie/dynamische-energieprijzen"
+  html = URI.open(url, "User-Agent" => user_agent).read
+  doc = Nokogiri::HTML(html)
+
+  next_data_json = doc.at_css("script#__NEXT_DATA__")
+  unless next_data_json
+    $stderr.puts "Script tag with id='__NEXT_DATA__' not found on page."
+    return nil
+  end
+
+  data = JSON.parse(next_data_json.text)
+  hours = data.dig("props", "pageProps", "data", "templateProps", "energyData", "electricity", "hours")
+  unless hours
+    $stderr.puts "Electricity hours data not found at expected path in __NEXT_DATA__."
+    $stderr.puts "Available top-level keys: #{data.keys}"
+    $stderr.puts "pageProps keys: #{data.dig("props", "pageProps")&.keys}" if data.dig("props", "pageProps")
+    return nil
+  end
+
+  $stderr.puts "Fetched #{hours.length} price entries from Zonneplan."
+  hours
+end
+
+def fetch_from_energyzero(user_agent)
+  now = Time.now.localtime
+  from_date = Time.new(now.year, now.month, now.day, 0, 0, 0, now.utc_offset)
+  till_date = from_date + (2 * 24 * 3600) - 1
+
+  from_utc = from_date.utc.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+  till_utc = till_date.utc.strftime("%Y-%m-%dT%H:%M:%S.999Z")
+
+  api_url = "https://api.energyzero.nl/v1/energyprices?fromDate=#{from_utc}&tillDate=#{till_utc}&interval=4&usageType=1&inclBtw=true"
+  $stderr.puts "Fetching from EnergyZero API: #{api_url}"
+
+  response = URI.open(api_url, "User-Agent" => user_agent).read
+  data = JSON.parse(response)
+
+  prices = data["Prices"]
+  raise "No prices returned from EnergyZero API" if prices.nil? || prices.empty?
+
+  all_price_values = prices.map { _1["price"] }
+
+  hours = prices.map do |item|
+    price_eur = item["price"]
+    {
+      "dateTime" => item["readingDate"],
+      "priceTotalTaxIncluded" => (price_eur * 100000).round,
+      "pricingProfile" => classify_pricing_profile(price_eur, all_price_values)
+    }
+  end
+
+  # Return in reverse chronological order to match the Zonneplan data format
+  # (the generate_data_file function calls .reverse to get chronological order)
+  hours_reversed = hours.reverse
+
+  $stderr.puts "Fetched #{hours_reversed.length} price entries from EnergyZero API."
+  hours_reversed
 end
 
 def generate_data_file(hours, dat_file)
@@ -102,20 +170,23 @@ def execute_gnuplot(dat_file, bitmap_file, title)
   puts "Plot generated as build/hours.png."
 end
 
-if (next_data_json = doc.at_css("script#__NEXT_DATA__"))
-  data = JSON.parse(next_data_json.text)
+# Fetch price data: try Zonneplan first, fall back to EnergyZero API
+hours = nil
 
-  if (hours = data.dig("props", "pageProps", "data", "templateProps", "energyData", "electricity", "hours"))
-    # title = "Zonneplan #{DateTime.parse(hours[0]['dateTime']).strftime('%d-%m-%Y')} #{Time.now.localtime.strftime("%H:%M")}"
-    title = "Zonneplan #{Time.now.localtime.strftime("%d-%m-%Y %H:%M")}"
-    generate_data_file(hours, dat_file)
-    execute_gnuplot(dat_file, bitmap_file, title)
-    do_cli_command("magick #{bitmap_file} -dither FloydSteinberg -define dither:diffusion-amount=50% -ordered-dither h4x4a build/dithered.png")
-    do_cli_command("magick build/dithered.png -monochrome -colors 2 -depth 1 -strip png:build/diffused.png")
-    do_cli_command("magick build/dithered.png -monochrome -colors 2 -depth 1 -strip bmp3:build/diffused.bmp")
-  else
-    throw "No electricity hours data found in __NEXT_DATA__."
-  end
-else
-  throw "Script tag with id='__NEXT_DATA__' not found."
+begin
+  hours = fetch_from_zonneplan(user_agent)
+rescue => e
+  $stderr.puts "Zonneplan fetch error: #{e.message}"
 end
+
+if hours.nil?
+  $stderr.puts "Falling back to EnergyZero API..."
+  hours = fetch_from_energyzero(user_agent)
+end
+
+title = "Zonneplan #{Time.now.localtime.strftime("%d-%m-%Y %H:%M")}"
+generate_data_file(hours, dat_file)
+execute_gnuplot(dat_file, bitmap_file, title)
+do_cli_command("magick #{bitmap_file} -dither FloydSteinberg -define dither:diffusion-amount=50% -ordered-dither h4x4a build/dithered.png")
+do_cli_command("magick build/dithered.png -monochrome -colors 2 -depth 1 -strip png:build/diffused.png")
+do_cli_command("magick build/dithered.png -monochrome -colors 2 -depth 1 -strip bmp3:build/diffused.bmp")
