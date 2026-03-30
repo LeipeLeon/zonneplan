@@ -89,7 +89,7 @@ def fetch_from_energyzero(user_agent)
     price_eur = item["price"]
     {
       "dateTime" => item["readingDate"],
-      "priceTotalTaxIncluded" => (price_eur * 100000).round,
+      "priceTotalTaxIncluded" => (price_eur * 10_000_000).round,
       "pricingProfile" => classify_pricing_profile(price_eur, all_price_values)
     }
   end
@@ -121,7 +121,7 @@ def generate_data_file(hours, dat_file)
     graph_hours.each do |item|
       price_date = Time.parse(item["dateTime"]).localtime
       day_hour = price_date.strftime("%H")
-      price = (item["priceTotalTaxIncluded"].to_f / 100000).round(1)
+      price = (item["priceTotalTaxIncluded"].to_f / 100000).round(0)
       color = (now - 3600 > price_date) ? colors["stale"] : colors[item["pricingProfile"]]
       if (price_date - now) > -3600
         boudary_price = price if min_price == price.round(0) || max_price == price.round(0)
