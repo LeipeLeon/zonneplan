@@ -43,7 +43,7 @@ def execute_gnuplot(dat_file, bitmap_file, title)
     set nokey
     set border 1+2
     set boxwidth 0.8
-    set style fill solid
+    set style fill solid border lc rgb "black"
     set xtics font ",10"
 
     set xtics nomirror
@@ -53,7 +53,9 @@ def execute_gnuplot(dat_file, bitmap_file, title)
     set grid y
     # set ylabel "Price €"
 
-    plot '#{dat_file}' using 0:2:3:xtic(1) with boxes lc rgb var, '' using 0:2:4 with labels offset 0,1
+    plot '#{dat_file}' using 0:2:4:xtic(1) with boxes fs solid lc rgb var, \\
+         ''           using 0:($2 + $3/2.0):(0.4):($3/2.0) with boxxyerror fs pattern 4 border lc rgb "black", \\
+         ''           using 0:($2+$3):5 with labels offset 0,1
 
   SCRIPT
 

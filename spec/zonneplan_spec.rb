@@ -33,6 +33,13 @@ RSpec.describe Zonneplan do
     end
   end
 
+  describe "ENERGY_TAX_RAW constant" do
+    it "is in the same raw scale as priceEnergyTaxes from Zonneplan" do
+      expect(Zonneplan::ENERGY_TAX_RAW).to be_a(Integer)
+      expect(Zonneplan.display_price(Zonneplan::ENERGY_TAX_RAW)).to be_between(10, 15)
+    end
+  end
+
   describe ".classify_pricing_profile" do
     let(:prices) { [0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45] }
 
@@ -53,6 +60,45 @@ RSpec.describe Zonneplan do
 
     it "handles single-element list" do
       expect(Zonneplan.classify_pricing_profile(0.20, [0.20])).to eq("low")
+    end
+  end
+
+  describe ".generate_data_file" do
+    require "tempfile"
+
+    it "writes HOUR PRICE_EX_TAX TAX_AMOUNT COLOR [BOUNDARY] rows" do
+      hours = [
+        { "dateTime" => (Time.now + 3600).iso8601,
+          "priceTotalTaxIncluded" => 3_000_000,
+          "priceEnergyTaxes" => 1_228_634,
+          "pricingProfile" => "normal" }
+      ]
+      Tempfile.create("hours.dat") do |f|
+        Zonneplan.generate_data_file(hours, f.path)
+        tokens = File.read(f.path).lines.first.strip.split(/\s+/)
+        expect(tokens.length).to be_between(4, 5)
+        hour, price_ex, tax_amt, color, * = tokens
+        expect(hour).to match(/\A\d{2}\z/)
+        expect(price_ex.to_i + tax_amt.to_i).to be_within(1).of(30)
+        expect(tax_amt.to_i).to eq(12)
+        expect(color).to start_with("0x")
+      end
+    end
+
+    it "clamps tax to total when total < energy tax" do
+      hours = [
+        { "dateTime" => (Time.now + 3600).iso8601,
+          "priceTotalTaxIncluded" => 500_000,
+          "priceEnergyTaxes" => 1_228_634,
+          "pricingProfile" => "low" }
+      ]
+      Tempfile.create("hours.dat") do |f|
+        Zonneplan.generate_data_file(hours, f.path)
+        tokens = File.read(f.path).lines.first.strip.split(/\s+/)
+        _, price_ex, tax_amt, _ = tokens
+        expect(price_ex.to_i).to be >= 0
+        expect(price_ex.to_i + tax_amt.to_i).to be_within(1).of(5)
+      end
     end
   end
 end
