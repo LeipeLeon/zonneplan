@@ -53,9 +53,10 @@ def execute_gnuplot(dat_file, bitmap_file, title)
     set grid y
     # set ylabel "Price €"
 
-    plot '#{dat_file}' using 0:2:4:xtic(1) with boxes fs solid lc rgb var, \\
-         ''           using 0:($2 + $3/2.0):(0.4):($3/2.0) with boxxyerror fs pattern 4 border lc rgb "black", \\
-         ''           using 0:($2+$3):5 with labels offset 0,1
+    plot '#{dat_file}' using 0:2:5:xtic(1) with boxes fs solid lc rgb var, \\
+         ''           using 0:($2 + $3/2.0):(0.4):($3/2.0) with boxxyerror fs pattern 1 border lc rgb "black", \\
+         ''           using 0:($2 + $3 + $4/2.0):(0.4):($4/2.0) with boxxyerror fs pattern 4 border lc rgb "black", \\
+         ''           using 0:($2+$3+$4):6 with labels offset 0,1
 
   SCRIPT
 
