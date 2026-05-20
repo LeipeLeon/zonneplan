@@ -18,7 +18,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
-      contents: read
+      contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - name: Checkout code
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
@@ -52,14 +57,12 @@ jobs:
           ruby-version: "3.3"
           bundler-cache: true
 
-      - name: Build graph and convert
-        run: ./script/build
-
-      - name: Render README to index.html
+      - name: Build graph, render README, move history
         env:
           GH_TOKEN: ${{ github.token }}
         run: |-
-          mkdir -p build
+          set -euo pipefail
+          ./script/build
           {
             echo '<!doctype html><html lang="en"><head><meta charset="utf-8">'
             echo '<meta name="viewport" content="width=device-width,initial-scale=1">'
@@ -73,73 +76,28 @@ jobs:
               --field text=@README.md
             echo '</body></html>'
           } > build/index.html
+          timestamp=$(date +%Y/%m/%d-%H%M)
+          mkdir -p "history/$(dirname "$timestamp")"
+          mv build/hours.png "history/${timestamp}-color.png"
+          mv build/hours.dat "history/${timestamp}.dat"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
           path: build/
 
-      - name: Stage history files
-        run: |-
-          mkdir -p history-staging
-          timestamp=$(date +%Y/%m/%d-%H%M)
-          dir=$(dirname "$timestamp")
-          mkdir -p "history-staging/$dir"
-          mv build/hours.png "history-staging/${timestamp}-color.png"
-          mv build/hours.dat "history-staging/${timestamp}.dat"
-
-      - name: Upload history artifact
-        if: github.event_name != 'pull_request'
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        with:
-          name: history-files
-          path: history-staging/
-          retention-days: 1
-          if-no-files-found: error
-
-  commit-history:
-    needs: build
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    permissions:
-      contents: write
-    steps:
-      - name: Checkout main
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
-        with:
-          ref: main
-          fetch-depth: 1
-
-      - name: Download history artifact
-        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
-        with:
-          name: history-files
-          path: history-staging/
-
-      - name: Move into history/ and push
+      - name: Commit and push history
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         run: |-
           set -euo pipefail
           git config user.name "BerenBot"
           git config user.email "bot@wendbaar.nl"
-
-          # Move staged files into history/, preserving the YYYY/MM/ layout.
-          (cd history-staging && find . -type f -print0) | while IFS= read -r -d '' f; do
-            rel=${f#./}
-            mkdir -p "history/$(dirname "$rel")"
-            mv "history-staging/$rel" "history/$rel"
-          done
-          rmdir -p history-staging/* 2>/dev/null || true
-          rm -rf history-staging
-
           git add history
           if git diff --cached --quiet; then
             echo "No history changes to commit."
             exit 0
           fi
-
           git commit -m "Latest data: $(date -u)"
-
           # Rebase-and-retry to absorb any concurrent push that landed between
           # our checkout and now (cron + push events can interleave).
           for attempt in 1 2 3; do
@@ -153,18 +111,7 @@ jobs:
           echo "Failed to push after 3 attempts." >&2
           exit 1
 
-  deploy:
-    needs: build
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    runs-on: ubuntu-slim
-    timeout-minutes: 5
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - name: Deploy to GitHub Pages
-        id: deployment
+        id: deploy
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
