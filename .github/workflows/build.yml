@@ -52,14 +52,12 @@ jobs:
           ruby-version: "3.3"
           bundler-cache: true
 
-      - name: Build graph and convert
-        run: ./script/build
-
-      - name: Render README to index.html
+      - name: Build graph, render README, stage history
         env:
           GH_TOKEN: ${{ github.token }}
         run: |-
-          mkdir -p build
+          set -euo pipefail
+          ./script/build
           {
             echo '<!doctype html><html lang="en"><head><meta charset="utf-8">'
             echo '<meta name="viewport" content="width=device-width,initial-scale=1">'
@@ -73,20 +71,15 @@ jobs:
               --field text=@README.md
             echo '</body></html>'
           } > build/index.html
+          timestamp=$(date +%Y/%m/%d-%H%M)
+          mkdir -p "history-staging/$(dirname "$timestamp")"
+          mv build/hours.png "history-staging/${timestamp}-color.png"
+          mv build/hours.dat "history-staging/${timestamp}.dat"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
           path: build/
-
-      - name: Stage history files
-        run: |-
-          mkdir -p history-staging
-          timestamp=$(date +%Y/%m/%d-%H%M)
-          dir=$(dirname "$timestamp")
-          mkdir -p "history-staging/$dir"
-          mv build/hours.png "history-staging/${timestamp}-color.png"
-          mv build/hours.dat "history-staging/${timestamp}.dat"
 
       - name: Upload history artifact
         if: github.event_name != 'pull_request'
