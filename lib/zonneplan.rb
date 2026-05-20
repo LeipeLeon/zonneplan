@@ -6,7 +6,9 @@ require "time"
 module Zonneplan
   PRICE_DIVISOR = 100_000
   ENERGYZERO_MULTIPLIER = 10_000_000
-  ENERGY_TAX_RAW = 1_318_000
+  BTW_RATE = 0.21
+  ENERGY_TAX_RAW = 1_228_634
+  HANDLING_FEE_RAW = 80_100
 
   module_function
 
@@ -77,9 +79,11 @@ module Zonneplan
 
     hours = prices.map do |item|
       price_eur = item["price"]
+      market_with_btw = convert_energyzero_price(price_eur)
       {
         "dateTime" => item["readingDate"],
-        "priceTotalTaxIncluded" => convert_energyzero_price(price_eur),
+        "priceTotalTaxIncluded" => market_with_btw + HANDLING_FEE_RAW + ENERGY_TAX_RAW,
+        "priceHandlingFee" => HANDLING_FEE_RAW,
         "priceEnergyTaxes" => ENERGY_TAX_RAW,
         "pricingProfile" => classify_pricing_profile(price_eur, all_price_values)
       }
@@ -112,15 +116,23 @@ module Zonneplan
         day_hour = price_date.strftime("%H")
         total_raw = item["priceTotalTaxIncluded"]
         tax_raw = [item["priceEnergyTaxes"].to_i, total_raw].min
-        base_raw = total_raw - tax_raw
-        price_ex_tax = display_price(base_raw)
+        handling_raw = if item["priceInclHandlingVat"] && item["marketPrice"]
+          market_with_btw = (item["marketPrice"] * (1.0 + BTW_RATE)).round
+          [item["priceInclHandlingVat"] - market_with_btw, 0].max
+        else
+          item["priceHandlingFee"].to_i
+        end
+        handling_raw = [handling_raw, total_raw - tax_raw].min
+        market_raw = [total_raw - tax_raw - handling_raw, 0].max
+        market_price = display_price(market_raw)
+        handling_amount = display_price(handling_raw)
         tax_amount = display_price(tax_raw)
         total_price = display_price(total_raw)
         color = (now - 3600 > price_date) ? colors["stale"] : colors[item["pricingProfile"]]
-        if (price_date - now) > -3600
-          boundary_price = total_price if min_price == total_price.round(0) || max_price == total_price.round(0)
+        if (price_date - now) > -3600 && (min_price == total_price.round(0) || max_price == total_price.round(0))
+          boundary_price = format("%.1f", total_raw.to_f / PRICE_DIVISOR)
         end
-        f.puts "#{day_hour} #{price_ex_tax} #{tax_amount} #{color} #{boundary_price}"
+        f.puts "#{day_hour} #{market_price} #{handling_amount} #{tax_amount} #{color} #{boundary_price}"
       end
 
       puts "Data successfully written to #{dat_file}."

@@ -40,6 +40,13 @@ RSpec.describe Zonneplan do
     end
   end
 
+  describe "HANDLING_FEE_RAW constant" do
+    it "is in the same raw scale as Zonneplan handling fee (~2 ct/kWh)" do
+      expect(Zonneplan::HANDLING_FEE_RAW).to be_a(Integer)
+      expect(Zonneplan.display_price(Zonneplan::HANDLING_FEE_RAW)).to be_between(1, 5)
+    end
+  end
+
   describe ".classify_pricing_profile" do
     let(:prices) { [0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45] }
 
@@ -66,38 +73,61 @@ RSpec.describe Zonneplan do
   describe ".generate_data_file" do
     require "tempfile"
 
-    it "writes HOUR PRICE_EX_TAX TAX_AMOUNT COLOR [BOUNDARY] rows" do
+    it "writes HOUR MARKET HANDLING TAX COLOR [BOUNDARY] rows" do
       hours = [
         { "dateTime" => (Time.now + 3600).iso8601,
-          "priceTotalTaxIncluded" => 3_000_000,
+          "priceTotalTaxIncluded" => 2_636_093,
+          "marketPrice" => 997_900,
+          "priceInclHandlingVat" => 1_407_459,
           "priceEnergyTaxes" => 1_228_634,
           "pricingProfile" => "normal" }
       ]
       Tempfile.create("hours.dat") do |f|
         Zonneplan.generate_data_file(hours, f.path)
         tokens = File.read(f.path).lines.first.strip.split(/\s+/)
-        expect(tokens.length).to be_between(4, 5)
-        hour, price_ex, tax_amt, color, * = tokens
+        expect(tokens.length).to be_between(5, 6)
+        hour, market, handling, tax, color, * = tokens
         expect(hour).to match(/\A\d{2}\z/)
-        expect(price_ex.to_i + tax_amt.to_i).to be_within(1).of(30)
-        expect(tax_amt.to_i).to eq(12)
+        expect(market.to_i + handling.to_i + tax.to_i).to be_within(1).of(26)
+        expect(tax.to_i).to eq(12)
+        expect(handling.to_i).to be_within(1).of(2)
         expect(color).to start_with("0x")
       end
     end
 
-    it "clamps tax to total when total < energy tax" do
+    it "falls back to priceHandlingFee constant when raw fields missing" do
+      hours = [
+        { "dateTime" => (Time.now + 3600).iso8601,
+          "priceTotalTaxIncluded" => 2_708_000,
+          "priceHandlingFee" => 200_000,
+          "priceEnergyTaxes" => 1_318_000,
+          "pricingProfile" => "normal" }
+      ]
+      Tempfile.create("hours.dat") do |f|
+        Zonneplan.generate_data_file(hours, f.path)
+        tokens = File.read(f.path).lines.first.strip.split(/\s+/)
+        _, market, handling, tax, _ = tokens
+        expect(handling.to_i).to eq(2)
+        expect(tax.to_i).to eq(13)
+        expect(market.to_i).to be_within(1).of(12)
+      end
+    end
+
+    it "clamps segments to total when total < tax + handling" do
       hours = [
         { "dateTime" => (Time.now + 3600).iso8601,
           "priceTotalTaxIncluded" => 500_000,
-          "priceEnergyTaxes" => 1_228_634,
+          "priceHandlingFee" => 200_000,
+          "priceEnergyTaxes" => 1_318_000,
           "pricingProfile" => "low" }
       ]
       Tempfile.create("hours.dat") do |f|
         Zonneplan.generate_data_file(hours, f.path)
         tokens = File.read(f.path).lines.first.strip.split(/\s+/)
-        _, price_ex, tax_amt, _ = tokens
-        expect(price_ex.to_i).to be >= 0
-        expect(price_ex.to_i + tax_amt.to_i).to be_within(1).of(5)
+        _, market, handling, tax, _ = tokens
+        expect(market.to_i).to be >= 0
+        expect(handling.to_i).to be >= 0
+        expect(market.to_i + handling.to_i + tax.to_i).to be_within(1).of(5)
       end
     end
   end
