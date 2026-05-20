@@ -129,8 +129,8 @@ module Zonneplan
         tax_amount = display_price(tax_raw)
         total_price = display_price(total_raw)
         color = (now - 3600 > price_date) ? colors["stale"] : colors[item["pricingProfile"]]
-        if (price_date - now) > -3600
-          boundary_price = total_price if min_price == total_price.round(0) || max_price == total_price.round(0)
+        if (price_date - now) > -3600 && (min_price == total_price.round(0) || max_price == total_price.round(0))
+          boundary_price = format("%.1f", total_raw.to_f / PRICE_DIVISOR)
         end
         f.puts "#{day_hour} #{market_price} #{handling_amount} #{tax_amount} #{color} #{boundary_price}"
       end
