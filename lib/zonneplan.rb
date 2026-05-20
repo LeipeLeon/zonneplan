@@ -8,7 +8,7 @@ module Zonneplan
   ENERGYZERO_MULTIPLIER = 10_000_000
   BTW_RATE = 0.21
   ENERGY_TAX_RAW = 1_228_634
-  HANDLING_FEE_RAW = 80_100
+  HANDLING_FEE_RAW = 200_000
 
   module_function
 
