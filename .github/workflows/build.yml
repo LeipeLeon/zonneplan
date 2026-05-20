@@ -42,13 +42,13 @@ jobs:
           mkdir -p ~/.apt-cache
           # Seed apt's local archive with previously-downloaded .debs (no-op on cache miss).
           if compgen -G "$HOME/.apt-cache/*.deb" >/dev/null; then
-            sudo cp -n ~/.apt-cache/*.deb /var/cache/apt/archives/
+            sudo cp --update=none ~/.apt-cache/*.deb /var/cache/apt/archives/
           fi
           sudo apt-get update -y
           sudo apt-get install -y --no-install-recommends gnuplot-nox imagemagick
           # Save .debs back for next run.
           sudo find /var/cache/apt/archives -maxdepth 1 -name '*.deb' \
-            -exec cp -n {} ~/.apt-cache/ \;
+            -exec cp --update=none -t ~/.apt-cache/ {} +
           sudo chown -R "$USER" ~/.apt-cache
 
       - name: Set up Ruby
