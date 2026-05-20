@@ -22,7 +22,7 @@ jobs:
       pages: write
       id-token: write
     environment:
-      name: github-pages
+      name: ${{ (github.ref == 'refs/heads/main' && github.event_name != 'pull_request') && 'github-pages' || '' }}
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - name: Checkout code
