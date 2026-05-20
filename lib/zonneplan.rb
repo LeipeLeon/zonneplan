@@ -7,7 +7,7 @@ module Zonneplan
   PRICE_DIVISOR = 100_000
   ENERGYZERO_MULTIPLIER = 10_000_000
   BTW_RATE = 0.21
-  ENERGY_TAX_RAW = 1_228_634
+  ENERGY_TAX_RAW = 1_108_481
   HANDLING_FEE_RAW = 200_000
 
   module_function
@@ -37,20 +37,18 @@ module Zonneplan
   def fetch_from_zonneplan(user_agent)
     url = "https://www.zonneplan.nl/energie/dynamische-energieprijzen"
     html = URI.open(url, "User-Agent" => user_agent).read
-    doc = Nokogiri::HTML(html)
 
-    next_data_json = doc.at_css("script#__NEXT_DATA__")
-    unless next_data_json
-      $stderr.puts "Script tag with id='__NEXT_DATA__' not found on page."
-      return nil
+    hours = []
+    html.scan(/self\.__next_f\.push\(\[\d+,\s*"((?:[^"\\]|\\.)*)"\]\)/) do |(payload)|
+      next unless payload.include?("priceTotalTaxIncluded")
+      decoded = JSON.parse(%Q{"#{payload}"})
+      decoded.scan(/\{"__typename":"ElectricityHour"[^}]+\}/) do |obj|
+        hours << JSON.parse(obj)
+      end
     end
 
-    data = JSON.parse(next_data_json.text)
-    hours = data.dig("props", "pageProps", "data", "templateProps", "energyData", "electricity", "hours")
-    unless hours
-      $stderr.puts "Electricity hours data not found at expected path in __NEXT_DATA__."
-      $stderr.puts "Available top-level keys: #{data.keys}"
-      $stderr.puts "pageProps keys: #{data.dig("props", "pageProps")&.keys}" if data.dig("props", "pageProps")
+    if hours.empty?
+      $stderr.puts "ElectricityHour records not found on Zonneplan page."
       return nil
     end
 
