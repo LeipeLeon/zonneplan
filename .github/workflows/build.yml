@@ -2,90 +2,153 @@ name: Build and Publish
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - "*"
   schedule:
     - cron: "5 * * * *"
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ github.actor != 'github-actions[bot]' }}
+    timeout-minutes: 10
+    permissions:
+      contents: read
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Number of commits to fetch. 0 indicates all history for all branches and tags.
-          token: ${{ secrets.GITHUB_TOKEN }}
-        # See: https://askubuntu.com/questions/272248/processing-triggers-for-man-db
-      - name: disable man-db
-        run: sudo apt-get remove --purge man-db
-      - name: apt-get update
-        run: sudo apt-get update
-      - name: Install gnuplot
-        run: sudo apt install -y gnuplot
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
-      - name: Install Imagemagick
-        uses: mfinelli/setup-imagemagick@v6
+      - name: Install gnuplot and ImageMagick
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |-
+          sudo apt-get update -y
+          sudo apt-get install -y --no-install-recommends gnuplot imagemagick
 
       - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@97ecb7b512899eb71ab1bf2310a624c6f1589ac6 # v1.308.0
         with:
           ruby-version: "3.3"
           bundler-cache: true
 
-      - name: Make a graph and convert
+      - name: Build graph and convert
         run: ./script/build
 
-      - name: Convert Markdown to HTML
-        uses: natescherer/markdown-to-html-with-github-style-action@v1.1.0
-        with:
-          path: README.md
-          outputpath: build
-      - name: Move README.html to index.html
-        run: mv build/README.html build/index.html
+      - name: Render README to index.html
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |-
+          mkdir -p build
+          {
+            echo '<!doctype html><html lang="en"><head><meta charset="utf-8">'
+            echo '<meta name="viewport" content="width=device-width,initial-scale=1">'
+            echo '<title>Zonneplan</title>'
+            echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown.min.css">'
+            echo '<style>body{max-width:920px;margin:2rem auto;padding:0 1rem}</style>'
+            echo '</head><body class="markdown-body">'
+            gh api -X POST /markdown \
+              -f mode=gfm \
+              -f context="$GITHUB_REPOSITORY" \
+              --field text=@README.md
+            echo '</body></html>'
+          } > build/index.html
 
-      - name: Upload static files as artifact
-        id: deployment
-        uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
           path: build/
 
-      - name: Move image to history folder
+      - name: Stage history files
         run: |-
-          mkdir -p history/$(date +%Y/%m)
+          mkdir -p history-staging
           timestamp=$(date +%Y/%m/%d-%H%M)
-          mv build/hours.png history/${timestamp}-color.png
-          mv build/hours.dat history/${timestamp}.dat
+          dir=$(dirname "$timestamp")
+          mkdir -p "history-staging/$dir"
+          mv build/hours.png "history-staging/${timestamp}-color.png"
+          mv build/hours.dat "history-staging/${timestamp}.dat"
 
-      - name: Commit and push changes
+      - name: Upload history artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: history-files
+          path: history-staging/
+          retention-days: 1
+          if-no-files-found: error
+
+  commit-history:
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Download history artifact
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: history-files
+          path: history-staging/
+
+      - name: Move into history/ and push
         run: |-
+          set -euo pipefail
           git config user.name "BerenBot"
           git config user.email "bot@wendbaar.nl"
-          git add history/$(date +%Y/%m)
-          timestamp=$(date -u)
-          git commit -m "Latest data: ${timestamp}" || exit 0
-          git push origin ${{ github.ref }}
-  # Deploy job
+
+          # Move staged files into history/, preserving the YYYY/MM/ layout.
+          (cd history-staging && find . -type f -print0) | while IFS= read -r -d '' f; do
+            rel=${f#./}
+            mkdir -p "history/$(dirname "$rel")"
+            mv "history-staging/$rel" "history/$rel"
+          done
+          rmdir -p history-staging/* 2>/dev/null || true
+          rm -rf history-staging
+
+          git add history
+          if git diff --cached --quiet; then
+            echo "No history changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Latest data: $(date -u)"
+
+          # Rebase-and-retry to absorb any concurrent push that landed between
+          # our checkout and now (cron + push events can interleave).
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push rejected (attempt $attempt); rebasing on origin/main and retrying."
+            git fetch origin main
+            git rebase origin/main
+          done
+          echo "Failed to push after 3 attempts." >&2
+          exit 1
+
   deploy:
-    if: ${{ github.ref == 'refs/heads/main' }}
-    # Add a dependency to the build job
     needs: build
-
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-slim
+    timeout-minutes: 5
     permissions:
-      pages: write # to deploy to Pages
-      id-token: write # to verify the deployment originates from an appropriate source
-
-    # Deploy to the github-pages environment
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
-    # Specify runner + deployment step
-    runs-on: ubuntu-slim
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5

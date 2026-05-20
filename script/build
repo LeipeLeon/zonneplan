@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 # brew install gnuplot imagemagick
+# CI uses Ubuntu's ImageMagick 6 (apt), whose CLI is `convert`. Homebrew's IM7
+# ships both `magick` and `convert`, so `convert` works in both environments.
 require "bundler/inline"
 
 gemfile do
@@ -83,6 +85,6 @@ end
 title = "Zonneplan #{Time.now.localtime.strftime("%d-%m-%Y %H:%M")}"
 Zonneplan.generate_data_file(hours, dat_file)
 execute_gnuplot(dat_file, bitmap_file, title)
-do_cli_command("magick #{bitmap_file} -dither FloydSteinberg -define dither:diffusion-amount=50% -ordered-dither h4x4a build/dithered.png")
-do_cli_command("magick build/dithered.png -monochrome -colors 2 -depth 1 -strip png:build/diffused.png")
-do_cli_command("magick build/dithered.png -monochrome -colors 2 -depth 1 -strip bmp3:build/diffused.bmp")
+do_cli_command("convert #{bitmap_file} -dither FloydSteinberg -define dither:diffusion-amount=50% -ordered-dither h4x4a build/dithered.png")
+do_cli_command("convert build/dithered.png -monochrome -colors 2 -depth 1 -strip png:build/diffused.png")
+do_cli_command("convert build/dithered.png -monochrome -colors 2 -depth 1 -strip bmp3:build/diffused.bmp")
