@@ -23,12 +23,28 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
-      - name: Install gnuplot and ImageMagick
+      - name: Cache apt archives
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        with:
+          path: ~/.apt-cache
+          key: apt-${{ runner.os }}-gnuplot-nox-imagemagick-v1
+
+      - name: Install gnuplot-nox and ImageMagick
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |-
+          set -euo pipefail
+          mkdir -p ~/.apt-cache
+          # Seed apt's local archive with previously-downloaded .debs (no-op on cache miss).
+          if compgen -G "$HOME/.apt-cache/*.deb" >/dev/null; then
+            sudo cp -n ~/.apt-cache/*.deb /var/cache/apt/archives/
+          fi
           sudo apt-get update -y
-          sudo apt-get install -y --no-install-recommends gnuplot imagemagick
+          sudo apt-get install -y --no-install-recommends gnuplot-nox imagemagick
+          # Save .debs back for next run.
+          sudo find /var/cache/apt/archives -maxdepth 1 -name '*.deb' \
+            -exec cp -n {} ~/.apt-cache/ \;
+          sudo chown -R "$USER" ~/.apt-cache
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@97ecb7b512899eb71ab1bf2310a624c6f1589ac6 # v1.308.0
