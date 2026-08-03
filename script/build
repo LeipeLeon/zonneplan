@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 # brew install gnuplot imagemagick
-# CI uses Ubuntu's ImageMagick 6 (apt), whose CLI is `convert`. Homebrew's IM7
-# ships both `magick` and `convert`, so `convert` works in both environments.
 require "bundler/inline"
 
 gemfile do
@@ -21,6 +19,15 @@ ENV["TZ"] = "Europe/Amsterdam"
 dat_file = "build/hours.dat"
 bitmap_file = "build/hours.png"
 user_agent = "Ruby/#{RUBY_VERSION}; Leon Berenschot; https://github.com/LeipeLeon/zonneplan"
+
+# ImageMagick 7 renamed the CLI to `magick` and prints a deprecation warning on
+# every `convert` call. Ubuntu's apt package — what CI installs — is still IM6,
+# where `magick` does not exist at all, so neither name is safe to hardcode.
+IMAGEMAGICK = if ENV.fetch("PATH", "").split(File::PATH_SEPARATOR).any? { File.executable?(File.join(_1, "magick")) }
+  "magick"
+else
+  "convert"
+end
 
 Dir.mkdir("build") unless Dir.exist?("build")
 
@@ -84,6 +91,6 @@ end
 title = "Zonneplan #{Time.now.localtime.strftime("%d-%m-%Y %H:%M")}"
 Zonneplan.generate_data_file(entries, dat_file)
 execute_gnuplot(dat_file, bitmap_file, title)
-do_cli_command("convert #{bitmap_file} -dither FloydSteinberg -define dither:diffusion-amount=50% -ordered-dither h4x4a build/dithered.png")
-do_cli_command("convert build/dithered.png -monochrome -colors 2 -depth 1 -strip png:build/diffused.png")
-do_cli_command("convert build/dithered.png -monochrome -colors 2 -depth 1 -strip bmp3:build/diffused.bmp")
+do_cli_command("#{IMAGEMAGICK} #{bitmap_file} -dither FloydSteinberg -define dither:diffusion-amount=50% -ordered-dither h4x4a build/dithered.png")
+do_cli_command("#{IMAGEMAGICK} build/dithered.png -monochrome -colors 2 -depth 1 -strip png:build/diffused.png")
+do_cli_command("#{IMAGEMAGICK} build/dithered.png -monochrome -colors 2 -depth 1 -strip bmp3:build/diffused.bmp")
