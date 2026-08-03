@@ -38,22 +38,46 @@ module Zonneplan
     url = "https://www.zonneplan.nl/energie/dynamische-energieprijzen"
     html = URI.open(url, "User-Agent" => user_agent).read
 
-    hours = []
-    html.scan(/self\.__next_f\.push\(\[\d+,\s*"((?:[^"\\]|\\.)*)"\]\)/) do |(payload)|
-      next unless payload.include?("priceTotalTaxIncluded")
-      decoded = JSON.parse(%Q{"#{payload}"})
-      decoded.scan(/\{"__typename":"ElectricityHour"[^}]+\}/) do |obj|
-        hours << JSON.parse(obj)
-      end
-    end
-
-    if hours.empty?
-      $stderr.puts "ElectricityHour records not found on Zonneplan page."
+    entries = parse_price_entries(html)
+    if entries.nil?
+      $stderr.puts "Electricity price entries not found on Zonneplan page."
       return nil
     end
 
-    $stderr.puts "Fetched #{hours.length} price entries from Zonneplan."
-    hours
+    $stderr.puts "Fetched #{entries.length} price entries from Zonneplan."
+    entries
+  end
+
+  # The page streams its React Flight payload through self.__next_f.push([n, "<json>"]).
+  # The electricity block carries a 15-minute "quarters" array next to the 60-minute
+  # "hours" array; quarters win. Entries used to be tagged "__typename":"ElectricityHour",
+  # which the site dropped — the array key is the anchor now.
+  def parse_price_entries(html)
+    html.scan(/self\.__next_f\.push\(\[\d+,\s*"((?:[^"\\]|\\.)*)"\]\)/) do |(payload)|
+      next unless payload.include?("priceTotalTaxIncluded")
+      decoded = JSON.parse(%Q{"#{payload}"})
+      entries = extract_price_entries(decoded, "quarters") || extract_price_entries(decoded, "hours")
+      return entries if entries
+    end
+    nil
+  end
+
+  # Entries are flat objects, so the first "]" after the opening bracket closes the array.
+  # A Flight payload may serialise the field as a reference ("quarters":"$L52") instead of
+  # an array; every non-array shape must fall through to the next key, never raise.
+  def extract_price_entries(text, key)
+    marker = %Q{"#{key}":[}
+    start = text.index(marker)
+    return nil unless start
+    open_bracket = start + marker.length - 1
+    close_bracket = text.index("]", open_bracket)
+    return nil unless close_bracket
+    entries = JSON.parse(text[open_bracket..close_bracket])
+    return nil unless entries.is_a?(Array) && !entries.empty?
+    return nil unless entries.all? { _1.is_a?(Hash) && _1.key?("priceTotalTaxIncluded") }
+    entries
+  rescue JSON::ParserError
+    nil
   end
 
   def fetch_from_energyzero(user_agent)
@@ -93,7 +117,7 @@ module Zonneplan
     hours_reversed
   end
 
-  def generate_data_file(hours, dat_file)
+  def generate_data_file(entries, dat_file)
     colors = {
       "stale" => "0xCCCCCC",
       "low" => "0x999999",
@@ -103,15 +127,18 @@ module Zonneplan
 
     File.open(dat_file, "w") do |f|
       now = Time.now.localtime
-      upcoming_hours = hours.reverse.reject { (Time.parse(_1["dateTime"]).localtime - now) < -3600 }
-      prices = upcoming_hours.map { _1["priceTotalTaxIncluded"] }
-      min_price = display_price(prices.min)
-      max_price = display_price(prices.max)
+      ascending = entries.reverse
+      upcoming = ascending.reject { (Time.parse(_1["dateTime"]).localtime - now) < -3600 }
+      # Identity, not rounded display cents: duplicate extremes must not each get a label.
+      cheapest = upcoming.min_by { _1["priceTotalTaxIncluded"] }
+      priciest = upcoming.max_by { _1["priceTotalTaxIncluded"] }
 
-      graph_hours = hours.reverse.reject { (Time.parse(_1["dateTime"]).localtime - now) < -3600 * 4 }
-      graph_hours.each do |item|
+      graph_entries = ascending.reject { (Time.parse(_1["dateTime"]).localtime - now) < -3600 * 4 }
+      graph_entries.each do |item|
         price_date = Time.parse(item["dateTime"]).localtime
-        day_hour = price_date.strftime("%H")
+        # Quarter rows only carry an x-axis label on the hour; hourly rows always do.
+        # gnuplot's xtic(1) reads the two literal quotes as an empty label.
+        label = price_date.min.zero? ? price_date.strftime("%H") : %q{""}
         total_raw = item["priceTotalTaxIncluded"]
         tax_raw = [item["priceEnergyTaxes"].to_i, total_raw].min
         handling_raw = if item["priceInclHandlingVat"] && item["marketPrice"]
@@ -125,12 +152,11 @@ module Zonneplan
         market_price = display_price(market_raw)
         handling_amount = display_price(handling_raw)
         tax_amount = display_price(tax_raw)
-        total_price = display_price(total_raw)
         color = (now - 3600 > price_date) ? colors["stale"] : colors[item["pricingProfile"]]
-        if (price_date - now) > -3600 && (min_price == total_price.round(0) || max_price == total_price.round(0))
-          boundary_price = format("%.1f", total_raw.to_f / PRICE_DIVISOR)
+        boundary_price = if item.equal?(cheapest) || item.equal?(priciest)
+          format("%.1f", total_raw.to_f / PRICE_DIVISOR)
         end
-        f.puts "#{day_hour} #{market_price} #{handling_amount} #{tax_amount} #{color} #{boundary_price}"
+        f.puts "#{label} #{market_price} #{handling_amount} #{tax_amount} #{color} #{boundary_price}"
       end
 
       puts "Data successfully written to #{dat_file}."
