@@ -34,7 +34,6 @@ def execute_gnuplot(dat_file, bitmap_file, title)
     set output "#{bitmap_file}"
     set mono
 
-    set key autotitle columnhead
     unset key
 
     set title font "Verdana,16"
@@ -69,21 +68,21 @@ def execute_gnuplot(dat_file, bitmap_file, title)
 end
 
 # Fetch price data: try Zonneplan first, fall back to EnergyZero API
-hours = nil
+entries = nil
 
 begin
-  hours = Zonneplan.fetch_from_zonneplan(user_agent)
+  entries = Zonneplan.fetch_from_zonneplan(user_agent)
 rescue => e
   $stderr.puts "Zonneplan fetch error: #{e.message}"
 end
 
-if hours.nil?
+if entries.nil?
   $stderr.puts "Falling back to EnergyZero API..."
-  hours = Zonneplan.fetch_from_energyzero(user_agent)
+  entries = Zonneplan.fetch_from_energyzero(user_agent)
 end
 
 title = "Zonneplan #{Time.now.localtime.strftime("%d-%m-%Y %H:%M")}"
-Zonneplan.generate_data_file(hours, dat_file)
+Zonneplan.generate_data_file(entries, dat_file)
 execute_gnuplot(dat_file, bitmap_file, title)
 do_cli_command("convert #{bitmap_file} -dither FloydSteinberg -define dither:diffusion-amount=50% -ordered-dither h4x4a build/dithered.png")
 do_cli_command("convert build/dithered.png -monochrome -colors 2 -depth 1 -strip png:build/diffused.png")
