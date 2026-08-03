@@ -127,13 +127,25 @@ RSpec.describe Zonneplan do
     def quarter_entry(time, total)
       { "dateTime" => time.iso8601,
         "priceTotalTaxIncluded" => total,
-        "priceHandlingFee" => 200_000,
-        "priceEnergyTaxes" => 1_108_481,
         "pricingProfile" => "normal" }
     end
 
-    it "writes HOUR MARKET HANDLING TAX COLOR [BOUNDARY] rows" do
-      hours = [
+    it "writes LABEL TOTAL COLOR [BOUNDARY] rows" do
+      entries = [quarter_entry(next_hour, 2_636_093)]
+      Tempfile.create("hours.dat") do |f|
+        Zonneplan.generate_data_file(entries, f.path)
+        tokens = File.read(f.path).lines.first.strip.split(/\s+/)
+        expect(tokens.length).to eq(4)
+        label, total, color, boundary = tokens
+        expect(label).to eq(next_hour.strftime("%H"))
+        expect(total).to eq("26")
+        expect(color).to eq("0x666666")
+        expect(boundary).to eq("26.4")
+      end
+    end
+
+    it "plots the tax-included total, not the market/handling/tax split" do
+      entries = [
         { "dateTime" => next_hour.iso8601,
           "priceTotalTaxIncluded" => 2_636_093,
           "marketPrice" => 997_900,
@@ -142,51 +154,10 @@ RSpec.describe Zonneplan do
           "pricingProfile" => "normal" }
       ]
       Tempfile.create("hours.dat") do |f|
-        Zonneplan.generate_data_file(hours, f.path)
+        Zonneplan.generate_data_file(entries, f.path)
         tokens = File.read(f.path).lines.first.strip.split(/\s+/)
-        expect(tokens.length).to be_between(5, 6)
-        hour, market, handling, tax, color, * = tokens
-        expect(hour).to match(/\A\d{2}\z/)
-        expect(market.to_i + handling.to_i + tax.to_i).to be_within(1).of(26)
-        expect(tax.to_i).to eq(12)
-        expect(handling.to_i).to be_within(1).of(2)
-        expect(color).to start_with("0x")
-      end
-    end
-
-    it "falls back to priceHandlingFee constant when raw fields missing" do
-      hours = [
-        { "dateTime" => next_hour.iso8601,
-          "priceTotalTaxIncluded" => 2_708_000,
-          "priceHandlingFee" => 200_000,
-          "priceEnergyTaxes" => 1_318_000,
-          "pricingProfile" => "normal" }
-      ]
-      Tempfile.create("hours.dat") do |f|
-        Zonneplan.generate_data_file(hours, f.path)
-        tokens = File.read(f.path).lines.first.strip.split(/\s+/)
-        _, market, handling, tax, _ = tokens
-        expect(handling.to_i).to eq(2)
-        expect(tax.to_i).to eq(13)
-        expect(market.to_i).to be_within(1).of(12)
-      end
-    end
-
-    it "clamps segments to total when total < tax + handling" do
-      hours = [
-        { "dateTime" => next_hour.iso8601,
-          "priceTotalTaxIncluded" => 500_000,
-          "priceHandlingFee" => 200_000,
-          "priceEnergyTaxes" => 1_318_000,
-          "pricingProfile" => "low" }
-      ]
-      Tempfile.create("hours.dat") do |f|
-        Zonneplan.generate_data_file(hours, f.path)
-        tokens = File.read(f.path).lines.first.strip.split(/\s+/)
-        _, market, handling, tax, _ = tokens
-        expect(market.to_i).to be >= 0
-        expect(handling.to_i).to be >= 0
-        expect(market.to_i + handling.to_i + tax.to_i).to be_within(1).of(5)
+        expect(tokens.length).to eq(4)
+        expect(tokens[1]).to eq("26")
       end
     end
 
@@ -206,8 +177,8 @@ RSpec.describe Zonneplan do
       Tempfile.create("hours.dat") do |f|
         Zonneplan.generate_data_file(entries, f.path)
         rows = File.read(f.path).lines.map { _1.strip.split(/\s+/) }
-        expect(rows.count { _1.size == 6 }).to eq(2)
-        expect(rows.select { _1.size == 6 }.map(&:last)).to eq(["13.0", "37.0"])
+        expect(rows.count { _1.size == 4 }).to eq(2)
+        expect(rows.select { _1.size == 4 }.map(&:last)).to eq(["13.0", "37.0"])
       end
     end
 

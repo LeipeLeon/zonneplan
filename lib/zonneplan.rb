@@ -6,7 +6,6 @@ require "time"
 module Zonneplan
   PRICE_DIVISOR = 100_000
   ENERGYZERO_MULTIPLIER = 10_000_000
-  BTW_RATE = 0.21
   ENERGY_TAX_RAW = 1_108_481
   HANDLING_FEE_RAW = 200_000
 
@@ -105,8 +104,6 @@ module Zonneplan
       {
         "dateTime" => item["readingDate"],
         "priceTotalTaxIncluded" => market_with_btw + HANDLING_FEE_RAW + ENERGY_TAX_RAW,
-        "priceHandlingFee" => HANDLING_FEE_RAW,
-        "priceEnergyTaxes" => ENERGY_TAX_RAW,
         "pricingProfile" => classify_pricing_profile(price_eur, all_price_values)
       }
     end
@@ -139,24 +136,12 @@ module Zonneplan
         # Quarter rows only carry an x-axis label on the hour; hourly rows always do.
         # gnuplot's xtic(1) reads the two literal quotes as an empty label.
         label = price_date.min.zero? ? price_date.strftime("%H") : %q{""}
-        total_raw = item["priceTotalTaxIncluded"]
-        tax_raw = [item["priceEnergyTaxes"].to_i, total_raw].min
-        handling_raw = if item["priceInclHandlingVat"] && item["marketPrice"]
-          market_with_btw = (item["marketPrice"] * (1.0 + BTW_RATE)).round
-          [item["priceInclHandlingVat"] - market_with_btw, 0].max
-        else
-          item["priceHandlingFee"].to_i
-        end
-        handling_raw = [handling_raw, total_raw - tax_raw].min
-        market_raw = [total_raw - tax_raw - handling_raw, 0].max
-        market_price = display_price(market_raw)
-        handling_amount = display_price(handling_raw)
-        tax_amount = display_price(tax_raw)
+        total_price = display_price(item["priceTotalTaxIncluded"])
         color = (now - 3600 > price_date) ? colors["stale"] : colors[item["pricingProfile"]]
         boundary_price = if item.equal?(cheapest) || item.equal?(priciest)
-          format("%.1f", total_raw.to_f / PRICE_DIVISOR)
+          format("%.1f", item["priceTotalTaxIncluded"].to_f / PRICE_DIVISOR)
         end
-        f.puts "#{label} #{market_price} #{handling_amount} #{tax_amount} #{color} #{boundary_price}"
+        f.puts "#{label} #{total_price} #{color} #{boundary_price}"
       end
 
       puts "Data successfully written to #{dat_file}."

@@ -50,14 +50,14 @@ def execute_gnuplot(dat_file, bitmap_file, title)
     set xtics nomirror
     set ytics nomirror
 
-    # set yrange [0:7]
+    # Boxes are drawn from zero, so the axis has to start there or bar height
+    # stops being proportional to the price.
+    set yrange [0:*]
     set grid y
     # set ylabel "Price €"
 
-    plot '#{dat_file}' using 0:2:5:xtic(1) with boxes fs solid lc rgb var, \\
-         ''           using 0:($2 + $3/2.0):(0.4):($3/2.0) with boxxyerror fs pattern 1 border lc rgb "black", \\
-         ''           using 0:($2 + $3 + $4/2.0):(0.4):($4/2.0) with boxxyerror fs pattern 4 border lc rgb "black", \\
-         ''           using 0:($2+$3+$4):6 with labels offset 0,1
+    plot '#{dat_file}' using 0:2:3:xtic(1) with boxes fs solid lc rgb var, \\
+         ''           using 0:2:4 with labels offset 0,1
 
   SCRIPT
 
